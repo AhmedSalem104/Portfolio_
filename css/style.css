@@ -14150,3 +14150,16 @@ textarea.form-control {
 
 
 
+
+
+
+
+.hero .slider-item .img {
+    background-size: cover; /* أو contain */
+    background-position: center;
+}
+
+
+
+
+
