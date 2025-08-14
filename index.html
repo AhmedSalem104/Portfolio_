@@ -1060,31 +1060,31 @@
 
 			<div class="row block-9">
 				<div class="col-md-8">
-					<form action="https://formspree.io/f/mzzrerak" method="POST" onsubmit="return showprimaryMessage()"
-						class="bg-light p-4 p-md-5 contact-form" novalidate>
-
-						<div class="row">
-
+					<form class="bg-light p-4 p-md-5 contact-form" action="https://formspree.io/f/mgvzqkok" method="POST">
+					<!-- Email Field -->
 							<div class="col-md-12">
 								<div class="form-group">
-									<input type="text" required name="Email" class="form-control" placeholder="Email">
+									<input type="email" required name="email" class="form-control" placeholder="Email"
+										id="inputEmail">
+									<div class="invalid-feedback">Please enter a valid email address.</div>
 								</div>
 							</div>
+
+							<!-- Message Field -->
 							<div class="col-md-12">
 								<div class="form-group">
-									<textarea name="" required id="" cols="30" rows="7" name="Message" class="form-control"
-										placeholder="Message"></textarea>
+									<textarea name="message" required id="inputMessage" cols="30" rows="7"
+										class="form-control" placeholder="Message"></textarea>
+									<div class="invalid-feedback">Please write your message.</div>
 								</div>
 							</div>
+							<!-- Submit Button -->
 							<div class="col-md-12">
 								<div class="form-group">
 									<input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
 								</div>
 							</div>
-						
-						</div>
-					</form>
-
+					</form>				
 				</div>
 
 				<div class="col-md-4 d-flex pl-md-5">
