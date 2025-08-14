@@ -1,8 +1,32 @@
-Thank you for using our template!
+# Ahmed Salem – Portfolio
 
-For more awesome templates please visit https://colorlib.com/wp/templates/
+بورتفوليو شخصي لمطوّر **Full Stack (.NET & Angular)** يعرض المهارات، الشهادات، الأعمال (Projects)، ونبذة عني ومعلومات التواصل.
 
-Copyright information for the template can't be altered/removed unless you purchase a license.
-More information about the license is available here: https://colorlib.com/wp/licence/
+---
 
-Removing copyright information without the license will result in suspension of your hosting and/or domain name(s).
+## 🔗 Demo
+- **Live**: https://ahmedsalem-portfolio.app (عدّل بالرابط الفعلي على Vercel)
+- **Repository**: رابط المستودع على GitHub
+
+---
+
+## ✨ المميزات
+- قسم **About** ببيانات من السيرة الذاتية.
+- قسم **Skills** بكروت صغيرة و**Progress خطّي** قابل للتعديل.
+- قسم **Services** ببيانات حقيقية من الـ CV.
+- قسم **Projects** بدون صور خلفية، مع **خلفيات Gradient** قبل الـ hover وتأثير داكن عند المرور.
+- قسم **Certificates** بكروت موحّدة الطول وأيقونة ذهبية مميّزة.
+- **Social links** بأيقونات متساوية الحجم ومباعدة مناسبة.
+- متوافق مع الشاشات الصغيرة (Responsive) باستخدام Bootstrap/Grid.
+
+---
+
+## 🧰 التقنيات المستخدمة
+- HTML5, CSS3 (و/أو Bootstrap)
+- JavaScript (vanilla)
+- (اختياري) مكتبات أيقونات: Font Awesome / Flaticon
+- Vercel للنشر (Hosting)
+
+---
+
+## 📁 هيكلة المشروع
