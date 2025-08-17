@@ -14277,7 +14277,7 @@ textarea.form-control {
    }
 
    .ftco-footer-social {
-      display: flex;
+    display: inline-block;
       gap: 1rem;
    }
 
