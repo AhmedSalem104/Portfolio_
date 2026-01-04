@@ -1,0 +1,213 @@
+<app-header></app-header>
+<main>
+  <!-- Home Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-20" style="background: linear-gradient(to bottom right, #009688, #00C48C, #0288D1);">
+    <div class="container mx-auto px-6 py-12">
+      <div class="text-center text-white">
+        <div data-aos="fade-up">
+          <h1 class="text-5xl md:text-6xl font-bold font-cairo mb-4">
+            Ahmed Abd Elhamid Salem
+          </h1>
+          <h2 class="text-3xl font-cairo mb-4 text-gray-100">
+            Full-Stack Web Developer
+          </h2>
+          <p class="text-2xl font-tajawal mb-8 text-gray-200">
+            .NET & Angular Specialist
+          </p>
+
+          <p class="text-lg font-cairo mb-12 max-width-800 mx-auto leading-relaxed">
+            Full-Stack Web Developer with experience in building dynamic, responsive, modern web applications using a combination of Frontend and Backend technologies.
+            <br><br>
+            Proficient in HTML5, CSS3, JavaScript, and TypeScript, with expertise in frameworks like Angular and libraries such as jQuery.
+            <br><br>
+            Skilled in creating scalable and efficient backend systems using C#, .NET Core, .NET Framework, and SQL Server.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex gap-4 justify-center flex-wrap mb-12" data-aos="fade-up" data-aos-delay="200">
+            <a href="assets/cv/Ahmed_Salem_CV.pdf" download
+               class="px-8 py-4 bg-white text-primary font-bold font-cairo rounded-lg hover:shadow-xl transition-all duration-300">
+              Download CV
+            </a>
+            <button (click)="scrollToSection('projects')"
+               class="px-8 py-4 border-2 border-white text-white font-bold font-cairo rounded-lg hover:bg-white hover:text-primary transition-all duration-300">
+              View Projects
+            </button>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="flex gap-6 justify-center flex-wrap mb-8 text-gray-100" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
+              <span class="font-cairo">Ahmedsalem1041998@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+              </svg>
+              <span class="font-cairo">01015819700</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="font-cairo">10th of Ramadan City, Egypt</span>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex gap-6 justify-center mt-8" data-aos="fade-up" data-aos-delay="600">
+            <a href="https://github.com/AhmedSalem104" target="_blank" class="text-white hover:text-gray-200 transition-all transform hover:scale-110">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" class="text-white hover:text-gray-200 transition-all transform hover:scale-110">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c?utm_medium=other&utm_source=referral" target="_blank" class="flex items-center justify-center w-8 h-8 bg-white bg-opacity-20 rounded-full text-white hover:bg-opacity-30 transition-all transform hover:scale-110">
+              <span class="font-bold text-lg">W</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen pt-24 pb-16 bg-background">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-bold text-text-primary font-cairo mb-4">About Me</h1>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-primary-light mx-auto"></div>
+      </div>
+
+      <!-- Work Experience -->
+      <div class="bg-white rounded-lg shadow-soft p-8 mb-8" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-primary font-cairo mb-6">💼 Work Experience</h2>
+
+        <!-- Solution Software -->
+        <div class="mb-8 border-l-4 border-primary pl-6">
+          <h3 class="text-2xl font-bold text-text-primary font-cairo">Full-Stack Web Developer (.NET & Angular)</h3>
+          <p class="text-secondary font-cairo mb-2 text-lg">Solution Software</p>
+          <p class="text-text-secondary font-cairo mb-1 font-semibold">May 2021 – Present</p>
+
+          <p class="text-text-secondary font-cairo mb-4 mt-4">
+            <strong>تطوير تطبيقات ويب للبلديات السعودية، تشمل:</strong>
+          </p>
+          <ul class="list-disc list-inside text-text-secondary font-cairo space-y-2 ml-4">
+            <li>برامج إدارة المخازن (Warehouse Systems)</li>
+            <li>أنظمة الصيانة (Maintenance Systems)</li>
+            <li>أنظمة الاستثمار العقاري (Real Estate Investment Platforms)</li>
+          </ul>
+
+          <div class="mt-6 bg-background p-4 rounded-lg">
+            <h4 class="font-bold text-lg text-text-primary font-cairo mb-3">🔧 Maintenance Management System</h4>
+            <p class="text-text-secondary font-cairo mb-2"><strong>Technologies:</strong> ASP.NET MVC, Code First, Design Patterns, SOLID Principles, Crystal Reports</p>
+            <ul class="list-disc list-inside text-text-secondary font-cairo space-y-1 ml-4">
+              <li>Developed a maintenance management system for an automotive and equipment servicing company</li>
+              <li>Implemented MVC Design Pattern with Code First approach</li>
+              <li>Designed multiple UI structures: Popup screens, Flat screens, Header & Details screens</li>
+              <li>Integrated Crystal Reports for generating detailed reports</li>
+              <li>Applied SOLID principles for maintainability and scalability</li>
+              <li>Implemented Role-Based Access Control (RBAC) for user permissions and security</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Freelance -->
+        <div class="border-l-4 border-secondary pl-6">
+          <h3 class="text-2xl font-bold text-text-primary font-cairo">💻 Freelance Frontend & Backend Developer</h3>
+          <p class="text-secondary font-cairo mb-2 text-lg">November 2020 – 2021</p>
+
+          <div class="mt-4 space-y-3">
+            <div class="bg-background p-3 rounded">
+              <p class="font-semibold text-text-primary font-cairo">Shopping Online Website</p>
+              <p class="text-text-secondary font-cairo">Integrated front-end and back-end using Angular and .NET Core</p>
+            </div>
+            <div class="bg-background p-3 rounded">
+              <p class="font-semibold text-text-primary font-cairo">Donate Medicine Website</p>
+              <p class="text-text-secondary font-cairo">Developed using SQL Server for data storage and C# for backend logic</p>
+            </div>
+            <div class="bg-background p-3 rounded">
+              <p class="font-semibold text-text-primary font-cairo">Diet To Door</p>
+              <p class="text-text-secondary font-cairo">A health food delivery platform with robust backend architecture</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Certifications -->
+      <div class="bg-white rounded-lg shadow-soft p-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="text-3xl font-bold text-primary font-cairo mb-6">🎓 Education & Certifications</h2>
+
+        <div class="space-y-6">
+          <!-- Degree -->
+          <div class="border-l-4 border-success pl-6">
+            <h3 class="text-xl font-bold text-text-primary font-cairo">Bachelor of Computer Science</h3>
+            <p class="text-secondary font-cairo mb-2">Higher Technological Institute (September 2021)</p>
+            <p class="text-text-secondary font-cairo">Grade: Good | Project: Excellent</p>
+          </div>
+
+          <!-- Frontend Diploma -->
+          <div class="border-l-4 border-success pl-6">
+            <h3 class="text-xl font-bold text-text-primary font-cairo">Frontend Developer Diploma</h3>
+            <p class="text-secondary font-cairo mb-2">Route Academy</p>
+            <p class="text-text-secondary font-cairo">HTML5, CSS3, JavaScript, Angular, TypeScript, jQuery, Bootstrap, Tailwind CSS, Sass, Figma</p>
+          </div>
+
+          <!-- Backend Diploma -->
+          <div class="border-l-4 border-success pl-6">
+            <h3 class="text-xl font-bold text-text-primary font-cairo">Backend Developer Diploma</h3>
+            <p class="text-secondary font-cairo mb-2">Route Academy</p>
+            <p class="text-text-secondary font-cairo">C#, C# OOP, C# Advanced, SQL Server + .NET Core</p>
+          </div>
+
+          <!-- Full Stack Diploma -->
+          <div class="border-l-4 border-success pl-6">
+            <h3 class="text-xl font-bold text-text-primary font-cairo">Web Development Full Stack Diploma</h3>
+            <p class="text-secondary font-cairo mb-2">Russian Culture Center</p>
+            <p class="text-text-secondary font-cairo">Frontend and Backend Development with focus on .NET and MVC</p>
+          </div>
+
+          <!-- Backend Course -->
+          <div class="border-l-4 border-success pl-6">
+            <h3 class="text-xl font-bold text-text-primary font-cairo">Backend Course</h3>
+            <p class="text-secondary font-cairo mb-2">egy_is</p>
+            <p class="text-text-secondary font-cairo">Agile, UML, C#, OOP Basics, Web Development using ASP.NET MVC (Code-First)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="bg-white rounded-lg shadow-soft p-8" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="text-3xl font-bold text-primary font-cairo mb-6">🌐 Languages</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-bold text-text-primary font-cairo mb-2">Arabic</h3>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+              <div class="bg-gradient-to-r from-primary to-primary-light h-3 rounded-full" style="width: 100%"></div>
+            </div>
+            <p class="text-text-secondary font-cairo mt-1">Native</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-text-primary font-cairo mb-2">English</h3>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+              <div class="bg-gradient-to-r from-primary to-primary-light h-3 rounded-full" style="width: 70%"></div>
+            </div>
+            <p class="text-text-secondary font-cairo mt-1">Intermediate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- السيليdوكتسمأكمل في رسالة منفصلة لأن الملف طويل جداً -->
+
+</main>
+<app-footer></app-footer>

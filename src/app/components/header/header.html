@@ -1,0 +1,68 @@
+<header class="fixed w-full top-0 z-50 bg-background-card/95 backdrop-blur-md border-b border-border shadow-lg">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a (click)="scrollToSection('home')" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo cursor-pointer hover:from-primary-light hover:to-accent transition-all duration-300">
+        Ahmed Salem
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a (click)="scrollToSection('home')" [class.text-primary]="activeSection === 'home'"
+           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+          Home
+        </a>
+        <a (click)="scrollToSection('about')" [class.text-primary]="activeSection === 'about'"
+           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+          About
+        </a>
+        <a (click)="scrollToSection('skills')" [class.text-primary]="activeSection === 'skills'"
+           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+          Skills
+        </a>
+        <a (click)="scrollToSection('projects')" [class.text-primary]="activeSection === 'projects'"
+           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+          Projects
+        </a>
+        <a (click)="scrollToSection('contact')" [class.text-primary]="activeSection === 'contact'"
+           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+          Contact
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button (click)="toggleMenu()" class="md:hidden text-text-primary focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+          <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden mt-4 pb-4 border-t border-border pt-4">
+      <a (click)="scrollToSection('home'); toggleMenu()"
+         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+        Home
+      </a>
+      <a (click)="scrollToSection('about'); toggleMenu()"
+         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+        About
+      </a>
+      <a (click)="scrollToSection('skills'); toggleMenu()"
+         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+        Skills
+      </a>
+      <a (click)="scrollToSection('projects'); toggleMenu()"
+         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+        Projects
+      </a>
+      <a (click)="scrollToSection('contact'); toggleMenu()"
+         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
+        Contact
+      </a>
+    </div>
+  </nav>
+</header>
