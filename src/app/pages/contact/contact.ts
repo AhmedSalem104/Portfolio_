@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -8,14 +10,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   formData = {
     email: '',
     message: ''
   };
 
   isSubmitting = false;
-  formspreeUrl = 'https://formspree.io/f/mgvzqkok';
 
   // Notification state
   notification = {
@@ -24,30 +25,28 @@ export class ContactComponent {
     message: ''
   };
 
+  ngOnInit() {
+    emailjs.init(environment.emailjs.publicKey);
+  }
+
   async onSubmit() {
     if (this.isSubmitting) return;
 
     this.isSubmitting = true;
 
     try {
-      const response = await fetch(this.formspreeUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: this.formData.email,
-          message: this.formData.message
-        })
-      });
+      await emailjs.send(
+        environment.emailjs.serviceId,
+        environment.emailjs.templateId,
+        {
+          from_email: this.formData.email,
+          message: this.formData.message,
+          to_email: 'ahmedsalem1041998@gmail.com'
+        }
+      );
 
-      if (response.ok) {
-        this.showNotification('success', 'Thank you for reaching out! I appreciate your visit to my portfolio and will get back to you soon.');
-        // Reset form
-        this.formData = { email: '', message: '' };
-      } else {
-        throw new Error('Form submission failed');
-      }
+      this.showNotification('success', 'Thank you for reaching out! I appreciate your visit to my portfolio and will get back to you soon.');
+      this.formData = { email: '', message: '' };
     } catch (error) {
       console.error('Failed to send message:', error);
       this.showNotification('error', 'Sorry, there was an error sending your message. Please try again or contact me directly via email.');
