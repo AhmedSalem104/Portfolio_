@@ -179,11 +179,12 @@
               <label for="name" class="block text-text-primary font-cairo font-semibold mb-2 text-sm">
                 Your Name <span class="text-text-muted text-xs font-normal">(optional)</span>
               </label>
-              <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted pointer-events-none" fill="currentColor" viewBox="0 0 20 20">
+              <div class="relative group">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted pointer-events-none transition-colors group-focus-within:text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
                 </svg>
                 <input type="text" id="name" name="name" [(ngModel)]="formData.name"
+                       maxlength="60"
                        class="w-full pl-12 pr-4 py-3 bg-background-elevated border border-border rounded-xl focus:outline-none focus:border-primary focus:shadow-glow transition-all font-cairo text-text-primary placeholder-text-muted"
                        placeholder="John Doe">
               </div>
@@ -194,48 +195,121 @@
               <label for="email" class="block text-text-primary font-cairo font-semibold mb-2 text-sm">
                 Email Address <span class="text-error">*</span>
               </label>
-              <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted pointer-events-none" fill="currentColor" viewBox="0 0 20 20">
+              <div class="relative group">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors"
+                     [class.text-text-muted]="!formData.email"
+                     [class.text-error]="formData.email && !isEmailValid"
+                     [class.text-success]="isEmailValid"
+                     fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                 </svg>
                 <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
-                       class="w-full pl-12 pr-4 py-3 bg-background-elevated border border-border rounded-xl focus:outline-none focus:border-primary focus:shadow-glow transition-all font-cairo text-text-primary placeholder-text-muted"
+                       maxlength="100"
+                       class="w-full pl-12 pr-12 py-3 bg-background-elevated border rounded-xl focus:outline-none transition-all font-cairo text-text-primary placeholder-text-muted"
+                       [class.border-border]="!formData.email"
+                       [class.border-error]="formData.email && !isEmailValid"
+                       [class.border-success]="isEmailValid"
+                       [class.focus:border-primary]="!formData.email"
+                       [class.focus:shadow-glow]="!formData.email || isEmailValid"
                        placeholder="you@example.com">
+                <!-- Validation Icon -->
+                <div *ngIf="formData.email" class="absolute right-4 top-1/2 -translate-y-1/2 transition-all">
+                  <svg *ngIf="isEmailValid" class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                  <svg *ngIf="!isEmailValid" class="w-5 h-5 text-error" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
               </div>
+              <p *ngIf="formData.email && !isEmailValid" class="text-error font-cairo text-xs mt-1.5 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                Please enter a valid email address.
+              </p>
             </div>
 
             <!-- Message -->
             <div>
-              <label for="message" class="block text-text-primary font-cairo font-semibold mb-2 text-sm">
-                Message <span class="text-error">*</span>
-              </label>
+              <div class="flex items-center justify-between mb-2">
+                <label for="message" class="block text-text-primary font-cairo font-semibold text-sm">
+                  Message <span class="text-error">*</span>
+                </label>
+                <span class="text-text-muted font-cairo text-xs"
+                      [class.text-warning]="messageCharCount > 800"
+                      [class.text-error]="messageCharCount > 950">
+                  {{ messageCharCount }} / 1000
+                </span>
+              </div>
               <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="6"
+                        maxlength="1000"
                         class="w-full px-4 py-3 bg-background-elevated border border-border rounded-xl focus:outline-none focus:border-primary focus:shadow-glow transition-all font-cairo resize-none text-text-primary placeholder-text-muted"
                         placeholder="Tell me about your project, opportunity, or just say hi..."></textarea>
             </div>
 
+            <!-- Status Strip (when error) -->
+            <div *ngIf="state === 'error' && errorMessage"
+                 class="flex items-start gap-2 p-3 bg-error/10 border border-error/30 rounded-lg animate-pulse">
+              <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+              </svg>
+              <p class="text-error font-cairo text-xs">{{ errorMessage }}</p>
+            </div>
+
             <!-- Submit Button -->
-            <button type="submit" [disabled]="!contactForm.valid || isSubmitting"
-                    class="w-full group relative px-6 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold font-cairo rounded-xl hover:shadow-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5">
+            <button type="submit"
+                    [disabled]="!isFormValid || state === 'sending'"
+                    class="w-full group relative px-6 py-4 text-white font-bold font-cairo rounded-xl transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5"
+                    [class.bg-gradient-to-r]="state !== 'success' && state !== 'error'"
+                    [class.from-primary]="state !== 'success' && state !== 'error'"
+                    [class.to-secondary]="state !== 'success' && state !== 'error'"
+                    [class.hover:shadow-glow-lg]="state === 'idle'"
+                    [class.bg-success]="state === 'success'"
+                    [class.shadow-glow]="state === 'success'"
+                    [class.bg-error]="state === 'error'">
               <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              <span *ngIf="isSubmitting" class="relative">
-                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+
+              <!-- Idle State -->
+              <ng-container *ngIf="state === 'idle'">
+                <svg class="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                <span class="relative">Send Message</span>
+              </ng-container>
+
+              <!-- Sending State -->
+              <ng-container *ngIf="state === 'sending'">
+                <svg class="animate-spin h-5 w-5 text-white relative" fill="none" viewBox="0 0 24 24">
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-              </span>
-              <svg *ngIf="!isSubmitting" class="w-5 h-5 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-              </svg>
-              <span class="relative">{{ isSubmitting ? 'Opening Email...' : 'Send Message' }}</span>
+                <span class="relative">Sending to Gmail...</span>
+              </ng-container>
+
+              <!-- Success State -->
+              <ng-container *ngIf="state === 'success'">
+                <svg class="w-6 h-6 relative animate-success-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="relative">Message Sent!</span>
+              </ng-container>
+
+              <!-- Error State -->
+              <ng-container *ngIf="state === 'error'">
+                <svg class="w-5 h-5 relative" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="relative">Trying Email Backup...</span>
+              </ng-container>
             </button>
 
             <p class="text-text-muted font-cairo text-xs text-center flex items-center justify-center gap-1.5">
-              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
-              Opens in your default email client &mdash; private and direct.
+              Your message goes directly to my Gmail. Spam-protected.
             </p>
           </form>
         </div>
