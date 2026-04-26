@@ -4,153 +4,200 @@
     <div class="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-slow"></div>
     <div class="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(99,102,241,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
   </div>
 
-  <div class="max-w-5xl mx-auto px-6 relative z-10">
-    <div class="text-center">
-      <!-- Badge: Years of Experience -->
-      <div class="flex justify-center mb-6"
-           data-aos="fade-down"
-           data-aos-duration="800">
-        <div class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/40 rounded-full backdrop-blur-sm">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
-          </span>
-          <span class="text-text-secondary font-cairo text-sm font-semibold">
-            5+ Years of Production Experience
-          </span>
-        </div>
-      </div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-      <!-- Hero Content -->
-      <div class="space-y-6">
-        <h1 class="text-5xl md:text-7xl font-bold font-cairo bg-gradient-to-r from-white via-primary-light to-accent bg-clip-text text-transparent"
-            data-aos="fade-down"
+      <!-- Left: Hero Content -->
+      <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+        <!-- Badge: Years of Experience -->
+        <div class="flex justify-center lg:justify-start mb-6"
+             data-aos="fade-down"
+             data-aos-duration="800">
+          <div class="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/40 rounded-full backdrop-blur-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+            </span>
+            <span class="text-text-secondary font-cairo text-sm font-semibold">
+              Available for Hire &middot; 5+ Years Experience
+            </span>
+          </div>
+        </div>
+
+        <p class="text-primary font-cairo font-semibold text-sm md:text-base mb-3 tracking-widest"
+           data-aos="fade-right"
+           data-aos-delay="100">
+          &lt; HELLO_WORLD /&gt;
+        </p>
+
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-cairo mb-4 leading-tight"
+            data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-easing="ease-out-back">
-          Ahmed Abd Elhamid Salem
+          <span class="text-text-primary">I'm </span>
+          <span class="bg-gradient-to-r from-white via-primary-light to-accent bg-clip-text text-transparent">
+            Ahmed Salem
+          </span>
         </h1>
-        <h2 class="text-2xl md:text-3xl font-cairo text-text-secondary"
+
+        <h2 class="text-xl md:text-2xl lg:text-3xl font-cairo mb-4"
             data-aos="fade-up"
             data-aos-delay="200"
             data-aos-duration="1000">
-          <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold">Senior Full-Stack Software Engineer</span>
+          <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">
+            Senior Full-Stack Software Engineer
+          </span>
         </h2>
-        <p class="text-xl md:text-2xl font-tajawal text-text-muted max-w-3xl mx-auto typing-text min-h-[2.5rem]"
+
+        <p class="text-lg md:text-xl font-tajawal text-text-muted typing-text min-h-[2rem] mb-6"
            data-aos="zoom-in"
            data-aos-delay="400"
            data-aos-duration="1000">
           {{typedText}}<span class="typing-cursor text-accent">|</span>
         </p>
 
-        <div class="mt-8 space-y-4"
-             data-aos="fade-up"
-             data-aos-delay="600"
-             data-aos-duration="1000">
-          <p class="text-base md:text-lg font-cairo text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Designing and shipping production-grade enterprise applications across
-            <span class="text-primary font-semibold">.NET 8</span>,
-            <span class="text-primary font-semibold">ASP.NET Core</span>, and
-            <span class="text-primary font-semibold">Angular (17 - 21)</span>.
-            <br>
-            Expert in
-            <span class="text-accent font-semibold">Clean Architecture</span>,
-            <span class="text-accent font-semibold">CQRS</span>,
-            <span class="text-accent font-semibold">SignalR + Redis</span>,
-            payment gateway integration, and
-            <span class="text-accent font-semibold">Microsoft Azure</span> deployment.
-          </p>
-        </div>
+        <p class="text-sm md:text-base font-cairo text-text-secondary leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0"
+           data-aos="fade-up"
+           data-aos-delay="600">
+          Designing and shipping production-grade enterprise applications across
+          <span class="text-primary font-semibold">.NET 8</span>,
+          <span class="text-primary font-semibold">ASP.NET Core</span>, and
+          <span class="text-primary font-semibold">Angular (17 - 21)</span>.
+          Expert in
+          <span class="text-accent font-semibold">Clean Architecture</span>,
+          <span class="text-accent font-semibold">CQRS</span>, and
+          <span class="text-accent font-semibold">Microsoft Azure</span>.
+        </p>
 
         <!-- Quick Tech Stack Pills -->
-        <div class="flex flex-wrap justify-center gap-2 mt-6"
+        <div class="flex flex-wrap justify-center lg:justify-start gap-2 mb-8"
              data-aos="fade-up"
              data-aos-delay="700">
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">.NET 8</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">Angular 21</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">EF Core 8</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">SignalR</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">Redis</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">SQL Server</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">Azure</span>
-          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full">JWT / OAuth 2.0</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">.NET 8</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">Angular 21</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">EF Core 8</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">SignalR</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">Redis</span>
+          <span class="px-3 py-1 bg-background-card border border-primary/30 text-primary-light text-xs font-cairo rounded-full hover:scale-110 transition-transform cursor-default">Azure</span>
         </div>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
           <a href="assets/cv/Ahmed_Salem_CV.pdf" download
              data-aos="flip-left"
              data-aos-delay="800"
-             data-aos-duration="1000"
-             class="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold font-cairo rounded-xl hover:from-primary-light hover:to-accent transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1 hover:scale-105">
-            Download CV
+             class="group relative px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-bold font-cairo rounded-xl overflow-hidden transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-1 hover:scale-105">
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+            <span class="relative flex items-center gap-2 justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+              Download CV
+            </span>
           </a>
           <a (click)="scrollToSection('projects')"
              data-aos="flip-right"
              data-aos-delay="1000"
-             data-aos-duration="1000"
-             class="px-8 py-4 bg-transparent border-2 border-primary text-primary font-bold font-cairo rounded-xl hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-glow transform hover:-translate-y-1 hover:scale-105 cursor-pointer">
+             class="group px-8 py-4 bg-transparent border-2 border-primary text-primary font-bold font-cairo rounded-xl hover:bg-primary hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer flex items-center gap-2 justify-center">
+            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
             View Projects
           </a>
         </div>
 
-        <!-- Contact Info -->
-        <div class="mt-12 flex flex-wrap justify-center gap-6 text-text-secondary">
-          <div class="flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:text-accent"
-               data-aos="fade-right"
-               data-aos-delay="1200">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-            </svg>
-            <span class="font-cairo">Ahmedsalem1041998&#64;gmail.com</span>
-          </div>
-          <div class="flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:text-accent"
-               data-aos="fade-up"
-               data-aos-delay="1400">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-            </svg>
-            <span class="font-cairo">+20 1015819700</span>
-          </div>
-          <div class="flex items-center gap-2 transition-all duration-300 hover:scale-110 hover:text-accent"
-               data-aos="fade-left"
-               data-aos-delay="1600">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-            </svg>
-            <span class="font-cairo">10 of Ramadan City, Egypt</span>
-          </div>
-        </div>
-
         <!-- Social Links -->
-        <div class="flex justify-center gap-6 mt-8">
-          <a href="https://github.com/AhmedSalem104" target="_blank"
-             data-aos="zoom-in"
-             data-aos-delay="1800"
-             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <div class="flex justify-center lg:justify-start gap-4">
+          <a href="https://github.com/AhmedSalem104" target="_blank" aria-label="GitHub"
+             data-aos="zoom-in" data-aos-delay="1200"
+             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank"
-             data-aos="zoom-in"
-             data-aos-delay="2000"
-             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+          <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" aria-label="LinkedIn"
+             data-aos="zoom-in" data-aos-delay="1300"
+             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
-          <a href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c?utm_medium=other&utm_source=referral" target="_blank"
-             data-aos="zoom-in"
-             data-aos-delay="2200"
-             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
-            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+          <a href="mailto:Ahmedsalem1041998@gmail.com" aria-label="Email"
+             data-aos="zoom-in" data-aos-delay="1400"
+             class="text-text-secondary hover:text-primary transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-primary hover:shadow-glow">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/201015819700" target="_blank" aria-label="WhatsApp"
+             data-aos="zoom-in" data-aos-delay="1500"
+             class="text-text-secondary hover:text-[#25D366] transition-all duration-300 transform hover:scale-125 hover:-translate-y-1 p-3 bg-background-card hover:bg-background-elevated rounded-xl border border-border hover:border-[#25D366] hover:shadow-glow">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
           </a>
         </div>
+      </div>
+
+      <!-- Right: Animated Avatar / Code Card -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-2"
+           data-aos="zoom-in"
+           data-aos-duration="1200">
+        <div class="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+          <!-- Animated Outer Rings -->
+          <div class="absolute inset-0 rounded-full border-2 border-primary/30 animate-spin-slow"></div>
+          <div class="absolute inset-4 rounded-full border-2 border-secondary/30 animate-spin-reverse"></div>
+          <div class="absolute inset-8 rounded-full border-2 border-accent/20 animate-spin-slow" style="animation-duration: 25s;"></div>
+
+          <!-- Glow Orbs -->
+          <div class="absolute top-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-glow"></div>
+          <div class="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-secondary rounded-full shadow-glow"></div>
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-accent rounded-full shadow-glow"></div>
+          <div class="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 bg-success rounded-full shadow-glow"></div>
+
+          <!-- Center: Profile Avatar -->
+          <div class="absolute inset-12 rounded-full bg-gradient-to-br from-primary via-secondary to-accent p-1 shadow-glow-lg animate-pulse-slow">
+            <div class="w-full h-full rounded-full bg-background-card flex items-center justify-center relative overflow-hidden">
+              <!-- Initials -->
+              <span class="text-7xl md:text-8xl font-bold bg-gradient-to-br from-primary via-secondary to-accent bg-clip-text text-transparent font-cairo">A</span>
+
+              <!-- Tech Logos floating around -->
+              <div class="absolute inset-0">
+                <!-- .NET -->
+                <div class="absolute top-4 right-6 px-2 py-1 bg-background-elevated/95 backdrop-blur-sm border border-primary/40 rounded-md text-[10px] font-bold text-primary-light font-cairo shadow-glow animate-float">.NET 8</div>
+                <!-- Angular -->
+                <div class="absolute bottom-6 left-4 px-2 py-1 bg-background-elevated/95 backdrop-blur-sm border border-error/40 rounded-md text-[10px] font-bold text-error font-cairo shadow-glow animate-float" style="animation-delay: 1.5s;">Angular</div>
+                <!-- C# -->
+                <div class="absolute top-1/2 left-2 px-2 py-1 bg-background-elevated/95 backdrop-blur-sm border border-secondary/40 rounded-md text-[10px] font-bold text-secondary font-cairo shadow-glow animate-float" style="animation-delay: 3s;">C#</div>
+                <!-- SQL -->
+                <div class="absolute bottom-4 right-4 px-2 py-1 bg-background-elevated/95 backdrop-blur-sm border border-warning/40 rounded-md text-[10px] font-bold text-warning font-cairo shadow-glow animate-float" style="animation-delay: 4.5s;">SQL</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Status Badge -->
+          <div class="absolute -bottom-2 right-6 bg-background-card border-2 border-success rounded-full px-4 py-2 shadow-glow flex items-center gap-2 animate-bounce-slow">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+            </span>
+            <span class="text-success font-cairo text-xs font-bold">Open to Work</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 animate-bounce-slow"
+         data-aos="fade-up"
+         data-aos-delay="2000">
+      <span class="text-text-muted font-cairo text-xs tracking-widest uppercase">Scroll</span>
+      <div class="w-6 h-10 border-2 border-text-muted rounded-full flex justify-center pt-2">
+        <div class="w-1 h-2 bg-primary rounded-full animate-bounce"></div>
       </div>
     </div>
   </div>

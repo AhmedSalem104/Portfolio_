@@ -34,7 +34,7 @@
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       @for (project of filteredProjects; track project.title) {
-        <div class="bg-background-card rounded-xl border border-border shadow-card overflow-hidden transition-all duration-500 hover:shadow-glow hover:-translate-y-3 hover:border-primary group flex flex-col"
+        <div class="bg-background-card rounded-xl border border-border shadow-card overflow-hidden transition-all duration-500 hover:shadow-glow hover:-translate-y-3 hover:border-primary group flex flex-col shine-card relative"
              data-aos="zoom-in-up"
              data-aos-duration="800"
              [attr.data-aos-delay]="project.delay">

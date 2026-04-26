@@ -33,21 +33,41 @@
 
       <!-- Quick Stats -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-border">
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
-          <div class="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo">5+</div>
-          <p class="text-text-muted font-cairo text-sm mt-1">Years Experience</p>
+        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="200">
+          <div class="relative inline-block">
+            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-all"></div>
+            <div class="relative">
+              <span [appCountUp]="5" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
+            </div>
+          </div>
+          <p class="text-text-muted font-cairo text-sm mt-2">Years Experience</p>
         </div>
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
-          <div class="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo">15+</div>
-          <p class="text-text-muted font-cairo text-sm mt-1">Production Projects</p>
+        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="300">
+          <div class="relative inline-block">
+            <div class="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:bg-secondary/40 transition-all"></div>
+            <div class="relative">
+              <span [appCountUp]="15" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
+            </div>
+          </div>
+          <p class="text-text-muted font-cairo text-sm mt-2">Production Projects</p>
         </div>
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
-          <div class="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo">579+</div>
-          <p class="text-text-muted font-cairo text-sm mt-1">REST API Endpoints</p>
+        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="400">
+          <div class="relative inline-block">
+            <div class="absolute inset-0 bg-accent/20 rounded-full blur-xl group-hover:bg-accent/40 transition-all"></div>
+            <div class="relative">
+              <span [appCountUp]="579" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
+            </div>
+          </div>
+          <p class="text-text-muted font-cairo text-sm mt-2">REST API Endpoints</p>
         </div>
-        <div class="text-center" data-aos="zoom-in" data-aos-delay="500">
-          <div class="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo">20</div>
-          <p class="text-text-muted font-cairo text-sm mt-1">GitHub Repositories</p>
+        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="500">
+          <div class="relative inline-block">
+            <div class="absolute inset-0 bg-success/20 rounded-full blur-xl group-hover:bg-success/40 transition-all"></div>
+            <div class="relative">
+              <span [appCountUp]="20" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
+            </div>
+          </div>
+          <p class="text-text-muted font-cairo text-sm mt-2">GitHub Repositories</p>
         </div>
       </div>
     </div>

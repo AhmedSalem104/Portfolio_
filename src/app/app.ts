@@ -6,8 +6,11 @@ import { AboutComponent } from './pages/about/about';
 import { SkillsComponent } from './pages/skills/skills';
 import { ProjectsComponent } from './pages/projects/projects';
 import { ContactComponent } from './pages/contact/contact';
+import { ScrollProgressComponent } from './components/scroll-progress/scroll-progress';
+import { BackToTopComponent } from './components/back-to-top/back-to-top';
+import { PageLoaderComponent } from './components/page-loader/page-loader';
+import { FloatingContactComponent } from './components/floating-contact/floating-contact';
 
-// Main app component with single-page layout
 declare var AOS: any;
 
 @Component({
@@ -19,22 +22,26 @@ declare var AOS: any;
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
-    ContactComponent
+    ContactComponent,
+    ScrollProgressComponent,
+    BackToTopComponent,
+    PageLoaderComponent,
+    FloatingContactComponent,
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App implements OnInit {
   ngOnInit() {
     if (typeof AOS !== 'undefined') {
       AOS.init({
-        duration: 800,          // Animation duration (smoother)
-        easing: 'ease-out-cubic', // Professional easing
-        once: false,             // Allow animations to repeat
-        mirror: true,            // Animate out when scrolling past
-        offset: 120,             // Offset from viewport
-        delay: 0,                // Default delay
-        anchorPlacement: 'top-bottom'
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: false,
+        mirror: true,
+        offset: 120,
+        delay: 0,
+        anchorPlacement: 'top-bottom',
       });
     }
   }
@@ -48,7 +55,7 @@ export class App implements OnInit {
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }
