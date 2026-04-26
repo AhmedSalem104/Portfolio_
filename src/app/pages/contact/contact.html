@@ -22,15 +22,6 @@
         <p class="text-white/90 font-cairo text-sm leading-relaxed">
           {{ notification.message }}
         </p>
-        <button *ngIf="notification.showFallback"
-                (click)="openMailClient(); closeNotification()"
-                class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur text-white rounded-lg font-cairo font-semibold text-xs transition-all">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-          </svg>
-          Open Email Client
-        </button>
       </div>
 
       <button (click)="closeNotification()"
@@ -62,24 +53,27 @@
         </h2>
 
         <!-- Email -->
-        <a href="mailto:Ahmedsalem1041998@gmail.com"
-           class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-primary hover:-translate-y-1 transition-all duration-300 group">
-          <div class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
+        <div class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-primary hover:-translate-y-1 transition-all duration-300 group">
+          <a href="mailto:Ahmedsalem1041998@gmail.com" class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
             </svg>
-          </div>
+          </a>
           <div class="flex-1 min-w-0">
             <h3 class="font-bold text-text-primary font-cairo mb-1">Email</h3>
-            <p class="text-text-secondary font-cairo text-sm group-hover:text-accent transition-colors break-all">
+            <a href="mailto:Ahmedsalem1041998@gmail.com" class="text-text-secondary font-cairo text-sm group-hover:text-accent transition-colors break-all">
               Ahmedsalem1041998&#64;gmail.com
-            </p>
+            </a>
           </div>
-          <svg class="w-5 h-5 text-text-muted group-hover:text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
+          <button (click)="copyEmail()" aria-label="Copy email"
+                  class="flex-shrink-0 p-2 text-text-muted hover:text-primary hover:bg-background-elevated rounded-lg transition-all"
+                  title="Copy email">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+            </svg>
+          </button>
+        </div>
 
         <!-- WhatsApp -->
         <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer"
@@ -221,33 +215,28 @@
                         placeholder="Tell me about your project, opportunity, or just say hi..."></textarea>
             </div>
 
-            <!-- Submit Buttons -->
-            <div class="flex flex-col sm:flex-row gap-3">
-              <button type="submit" [disabled]="!contactForm.valid || isSubmitting"
-                      class="flex-1 group relative px-6 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold font-cairo rounded-xl hover:shadow-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5">
-                <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                <span *ngIf="isSubmitting" class="relative">
-                  <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                </span>
-                <svg *ngIf="!isSubmitting" class="w-5 h-5 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            <!-- Submit Button -->
+            <button type="submit" [disabled]="!contactForm.valid || isSubmitting"
+                    class="w-full group relative px-6 py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold font-cairo rounded-xl hover:shadow-glow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5">
+              <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              <span *ngIf="isSubmitting" class="relative">
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                <span class="relative">{{ isSubmitting ? 'Sending...' : 'Send Message' }}</span>
-              </button>
+              </span>
+              <svg *ngIf="!isSubmitting" class="w-5 h-5 relative" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+              <span class="relative">{{ isSubmitting ? 'Opening Email...' : 'Send Message' }}</span>
+            </button>
 
-              <button type="button" (click)="openMailClient()"
-                      class="px-5 py-3.5 bg-background-elevated border border-border text-text-secondary font-cairo font-semibold text-sm rounded-xl hover:border-accent hover:text-accent hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
-                      title="Open in your default email client">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                Open Mail
-              </button>
-            </div>
+            <p class="text-text-muted font-cairo text-xs text-center flex items-center justify-center gap-1.5">
+              <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              Opens in your default email client &mdash; private and direct.
+            </p>
           </form>
         </div>
       </div>
