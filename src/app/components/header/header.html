@@ -1,68 +1,119 @@
-<header class="fixed w-full top-0 z-50 bg-background-card/95 backdrop-blur-md border-b border-border shadow-lg">
-  <nav class="container mx-auto px-6 py-4">
+<header
+  class="fixed w-full top-0 z-50 transition-all duration-500"
+  [class.bg-background-card]="isScrolled"
+  [class.backdrop-blur-xl]="isScrolled"
+  [class.shadow-glow]="isScrolled"
+  [class.border-b]="isScrolled"
+  [class.border-primary]="isScrolled"
+  [class.border-opacity-20]="isScrolled"
+  [class.py-2]="isScrolled"
+  [class.bg-transparent]="!isScrolled"
+  [class.py-4]="!isScrolled">
+
+  <nav class="container mx-auto px-6">
     <div class="flex items-center justify-between">
+
       <!-- Logo -->
-      <a (click)="scrollToSection('home')" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo cursor-pointer hover:from-primary-light hover:to-accent transition-all duration-300">
-        Ahmed Salem
+      <a (click)="scrollToSection('home')"
+         class="group flex items-center gap-2 cursor-pointer">
+        <div class="relative">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary via-secondary to-accent rounded-lg flex items-center justify-center shadow-glow group-hover:shadow-glow-lg transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
+            <span class="text-white font-bold font-cairo text-lg">A</span>
+          </div>
+          <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-success rounded-full border-2 border-background animate-pulse"></div>
+        </div>
+        <div class="hidden sm:flex flex-col leading-tight">
+          <span class="text-base font-bold bg-gradient-to-r from-white to-primary-light bg-clip-text text-transparent font-cairo">
+            Ahmed Salem
+          </span>
+          <span class="text-[10px] text-text-muted font-cairo tracking-widest uppercase">
+            Full-Stack Engineer
+          </span>
+        </div>
       </a>
 
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a (click)="scrollToSection('home')" [class.text-primary]="activeSection === 'home'"
-           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-          Home
-        </a>
-        <a (click)="scrollToSection('about')" [class.text-primary]="activeSection === 'about'"
-           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-          About
-        </a>
-        <a (click)="scrollToSection('skills')" [class.text-primary]="activeSection === 'skills'"
-           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-          Skills
-        </a>
-        <a (click)="scrollToSection('projects')" [class.text-primary]="activeSection === 'projects'"
-           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-          Projects
-        </a>
-        <a (click)="scrollToSection('contact')" [class.text-primary]="activeSection === 'contact'"
-           class="font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-          Contact
-        </a>
+      <!-- Desktop Menu - Pill Style -->
+      <div class="hidden lg:flex items-center bg-background-card/60 backdrop-blur-xl border border-border rounded-full p-1.5 shadow-card">
+        @for (item of navItems; track item.id) {
+          <a (click)="scrollToSection(item.id)"
+             class="relative flex items-center gap-2 px-5 py-2 rounded-full font-cairo text-sm font-semibold cursor-pointer transition-all duration-300 group"
+             [class.bg-gradient-to-r]="activeSection === item.id"
+             [class.from-primary]="activeSection === item.id"
+             [class.to-secondary]="activeSection === item.id"
+             [class.text-white]="activeSection === item.id"
+             [class.shadow-glow]="activeSection === item.id"
+             [class.text-text-secondary]="activeSection !== item.id"
+             [class.hover:text-primary-light]="activeSection !== item.id">
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 20 20">
+              <path [attr.d]="item.iconPath" [attr.fill-rule]="item.id === 'about' ? 'evenodd' : null" [attr.clip-rule]="item.id === 'about' ? 'evenodd' : null"></path>
+            </svg>
+            <span>{{ item.label }}</span>
+          </a>
+        }
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button (click)="toggleMenu()" class="md:hidden text-text-primary focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"></path>
-          <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+      <!-- Right Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Hire Me CTA - Desktop -->
+        <a (click)="scrollToSection('contact')"
+           class="hidden md:flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-cairo font-semibold text-sm shadow-glow hover:shadow-glow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          </span>
+          Hire Me
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button (click)="toggleMenu()"
+                class="lg:hidden flex items-center justify-center w-11 h-11 bg-background-card border border-border rounded-xl text-text-primary focus:outline-none hover:border-primary hover:shadow-glow transition-all duration-300"
+                [class.bg-primary]="isMenuOpen"
+                [class.border-primary]="isMenuOpen">
+          <svg class="w-5 h-5 transition-transform duration-300" [class.rotate-90]="isMenuOpen"
+               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
+            <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div *ngIf="isMenuOpen" class="md:hidden mt-4 pb-4 border-t border-border pt-4">
-      <a (click)="scrollToSection('home'); toggleMenu()"
-         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-        Home
-      </a>
-      <a (click)="scrollToSection('about'); toggleMenu()"
-         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-        About
-      </a>
-      <a (click)="scrollToSection('skills'); toggleMenu()"
-         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-        Skills
-      </a>
-      <a (click)="scrollToSection('projects'); toggleMenu()"
-         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-        Projects
-      </a>
-      <a (click)="scrollToSection('contact'); toggleMenu()"
-         class="block py-2 font-cairo text-text-secondary hover:text-primary transition-colors duration-300 cursor-pointer">
-        Contact
-      </a>
+    <div *ngIf="isMenuOpen"
+         class="lg:hidden mt-4 bg-background-card/95 backdrop-blur-xl border border-border rounded-2xl shadow-card overflow-hidden animate-slide-down">
+      <div class="p-2 space-y-1">
+        @for (item of navItems; track item.id) {
+          <a (click)="scrollToSection(item.id)"
+             class="flex items-center gap-3 px-4 py-3 rounded-xl font-cairo font-semibold cursor-pointer transition-all duration-300"
+             [class.bg-gradient-to-r]="activeSection === item.id"
+             [class.from-primary]="activeSection === item.id"
+             [class.to-secondary]="activeSection === item.id"
+             [class.text-white]="activeSection === item.id"
+             [class.text-text-secondary]="activeSection !== item.id"
+             [class.hover:bg-background-elevated]="activeSection !== item.id"
+             [class.hover:text-primary-light]="activeSection !== item.id">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path [attr.d]="item.iconPath" [attr.fill-rule]="item.id === 'about' ? 'evenodd' : null" [attr.clip-rule]="item.id === 'about' ? 'evenodd' : null"></path>
+            </svg>
+            <span>{{ item.label }}</span>
+            <svg *ngIf="activeSection === item.id" class="w-4 h-4 ml-auto" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+        }
+
+        <!-- Mobile Hire Me Button -->
+        <a (click)="scrollToSection('contact')"
+           class="flex items-center justify-center gap-2 mt-2 mx-2 mb-2 px-4 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl font-cairo font-bold shadow-glow cursor-pointer hover:scale-105 transition-all duration-300">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          </span>
+          Hire Me
+        </a>
+      </div>
     </div>
   </nav>
 </header>
