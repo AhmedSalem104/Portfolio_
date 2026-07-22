@@ -1,54 +1,53 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,ts}",
-  ],
+  content: ['./src/**/*.{html,ts}'],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2446d8',
-          light: '#4f6be5',
-          dark: '#17319e',
+          DEFAULT: '#2563eb',
+          light: '#60a5fa',
+          dark: '#1d4ed8',
         },
-        secondary: '#e9673f',
-        accent: '#087f72',
-        success: '#18794e',
-        error: '#c43d3d',
-        warning: '#a45b12',
+        secondary: '#7c3aed',
+        accent: '#0d9488',
+        success: '#059669',
+        error: '#dc2626',
+        warning: '#d97706',
         background: {
-          DEFAULT: '#f3f0e8',
-          card: '#fffdf8',
-          elevated: '#e9e5da',
+          DEFAULT: '#f7f9fc',
+          card: '#ffffff',
+          elevated: '#eef2ff',
         },
         text: {
-          primary: '#182027',
-          secondary: '#46515a',
-          muted: '#667078',
+          primary: '#0f172a',
+          secondary: '#475569',
+          muted: '#64748b',
         },
-        border: '#c8c6bd',
+        border: '#e2e8f0',
       },
       fontFamily: {
-        'cairo': ['"Segoe UI Variable"', '"Segoe UI"', 'Arial', 'sans-serif'],
-        'tajawal': ['ui-monospace', 'Consolas', 'monospace'],
+        cairo: ['"Segoe UI Variable"', 'Inter', '"Segoe UI"', 'Arial', 'sans-serif'],
+        tajawal: ['"Cascadia Code"', '"SFMono-Regular"', 'Consolas', 'monospace'],
       },
       borderRadius: {
-        'default': '2px',
-        'lg': '4px',
-        'xl': '6px',
+        default: '0.75rem',
+        lg: '1rem',
+        xl: '1.5rem',
+        '2xl': '2rem',
       },
       boxShadow: {
-        'soft': '0 1px 2px rgba(24, 32, 39, 0.08)',
-        'glow': '3px 3px 0 rgba(36, 70, 216, 0.18)',
-        'glow-lg': '5px 5px 0 rgba(36, 70, 216, 0.2)',
-        'card': '4px 4px 0 #d9d5ca',
+        soft: '0 10px 35px rgba(15, 23, 42, 0.07)',
+        card: '0 20px 60px rgba(15, 23, 42, 0.09)',
+        float: '0 24px 80px rgba(37, 99, 235, 0.18)',
+        glow: '0 0 0 6px rgba(37, 99, 235, 0.08)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(90deg, #2446d8 0%, #2446d8 72%, #e9673f 72%, #e9673f 100%)',
-        'gradient-accent': 'linear-gradient(90deg, #087f72 0%, #2446d8 100%)',
-        'gradient-dark': 'linear-gradient(180deg, #fffdf8 0%, #f3f0e8 100%)',
-      }
+        'gradient-primary': 'linear-gradient(135deg, #2563eb 0%, #4f46e5 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #0d9488 0%, #2563eb 100%)',
+        'gradient-dark': 'linear-gradient(145deg, #0f172a 0%, #172554 100%)',
+      },
     },
   },
   plugins: [],
-}
+};

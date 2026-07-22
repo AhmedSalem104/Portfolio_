@@ -7,24 +7,20 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   template: `
     <div class="fixed bottom-6 left-5 z-40 flex items-end gap-2 md:left-8">
-      <div *ngIf="isOpen" id="quick-contact-menu" class="flex flex-col border border-text-primary bg-background-card shadow-card">
+      <div *ngIf="isOpen" id="quick-contact-menu"
+           class="mb-14 flex w-44 flex-col overflow-hidden rounded-2xl border border-border bg-white p-2 shadow-card">
         <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer"
-           class="border-b border-border px-4 py-3 font-tajawal text-[10px] font-semibold uppercase tracking-wider text-text-primary hover:bg-background-elevated">
-          WhatsApp ↗
-        </a>
+           class="rounded-xl px-3 py-2.5 text-xs font-semibold text-text-secondary transition hover:bg-slate-50 hover:text-primary">WhatsApp <span class="float-right">↗</span></a>
         <a href="mailto:ahmedsalem1041998@gmail.com"
-           class="border-b border-border px-4 py-3 font-tajawal text-[10px] font-semibold uppercase tracking-wider text-text-primary hover:bg-background-elevated">
-          Email ↗
-        </a>
+           class="rounded-xl px-3 py-2.5 text-xs font-semibold text-text-secondary transition hover:bg-slate-50 hover:text-primary">Email <span class="float-right">↗</span></a>
         <a href="tel:+201015819700"
-           class="px-4 py-3 font-tajawal text-[10px] font-semibold uppercase tracking-wider text-text-primary hover:bg-background-elevated">
-          Call ↗
-        </a>
+           class="rounded-xl px-3 py-2.5 text-xs font-semibold text-text-secondary transition hover:bg-slate-50 hover:text-primary">Call <span class="float-right">↗</span></a>
       </div>
 
       <button type="button" (click)="toggle()" [attr.aria-expanded]="isOpen" aria-controls="quick-contact-menu"
               [attr.aria-label]="isOpen ? 'Close quick contact menu' : 'Open quick contact menu'"
-              class="min-h-12 border border-text-primary bg-primary px-4 font-tajawal text-[10px] font-semibold uppercase tracking-wider text-white shadow-[4px_4px_0_#e9673f] transition-transform hover:-translate-y-1">
+              class="absolute bottom-0 left-0 inline-flex min-h-12 items-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-primary px-4 text-xs font-semibold text-white shadow-float transition hover:-translate-y-1">
+        <span class="grid h-6 w-6 place-items-center rounded-lg bg-white/15" aria-hidden="true">{{ isOpen ? '×' : '✦' }}</span>
         {{ isOpen ? 'Close' : 'Let’s talk' }}
       </button>
     </div>

@@ -4,9 +4,9 @@ import { Component, Input } from '@angular/core';
   selector: 'app-scroll-progress',
   standalone: true,
   template: `
-    <div class="fixed top-0 left-0 w-full h-[3px] bg-transparent z-[60]">
+    <div class="fixed left-0 top-0 z-[60] h-[3px] w-full bg-transparent">
       <div
-        class="h-full bg-primary transition-[width] duration-150 ease-out"
+        class="h-full rounded-r-full bg-gradient-primary transition-[width] duration-150 ease-out"
         [style.width.%]="progress">
       </div>
     </div>

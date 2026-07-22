@@ -4,13 +4,9 @@
 
 :root {
   color-scheme: light;
-  --paper: #f3f0e8;
-  --paper-bright: #fffdf8;
-  --ink: #182027;
-  --blue: #2446d8;
-  --orange: #e9673f;
-  --green: #087f72;
-  --rule: #c8c6bd;
+  --page: #f7f9fc;
+  --ink: #0f172a;
+  --brand: #2563eb;
 }
 
 * {
@@ -23,17 +19,18 @@ html {
 }
 
 body {
-  margin: 0;
   min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
   background:
-    linear-gradient(rgba(24, 32, 39, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(24, 32, 39, 0.035) 1px, transparent 1px),
-    var(--paper);
-  background-size: 28px 28px;
+    radial-gradient(circle at 8% 5%, rgba(37, 99, 235, 0.07), transparent 24rem),
+    radial-gradient(circle at 92% 22%, rgba(13, 148, 136, 0.06), transparent 22rem),
+    var(--page);
   color: var(--ink);
-  font-family: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+  font-family: 'Segoe UI Variable', Inter, 'Segoe UI', Arial, sans-serif;
   direction: ltr;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 button,
@@ -50,16 +47,15 @@ button {
 
 section {
   position: relative;
-  border-bottom: 1px solid var(--rule);
 }
 
 ::selection {
-  background: #ffd6c8;
-  color: var(--ink);
+  background: #bfdbfe;
+  color: #172554;
 }
 
 *:focus-visible {
-  outline: 3px solid var(--orange);
+  outline: 3px solid #60a5fa;
   outline-offset: 3px;
 }
 
@@ -68,88 +64,48 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--paper);
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--blue);
-  border: 2px solid var(--paper);
+  border: 2px solid #f1f5f9;
+  border-radius: 999px;
+  background: #94a3b8;
 }
 
-.editorial-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  color: var(--blue);
-  font-family: 'IBM Plex Mono', Consolas, monospace;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
+@layer components {
+  .section-kicker {
+    @apply inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1.5 font-tajawal text-[10px] font-semibold uppercase tracking-[0.14em] text-primary;
+  }
 
-.editorial-kicker::before {
-  width: 2rem;
-  height: 2px;
-  background: var(--orange);
-  content: '';
-}
+  .section-kicker::before {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: #2563eb;
+    content: '';
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  }
 
-.section-heading {
-  margin-top: 0.8rem;
-  color: var(--ink);
-  font-size: clamp(2.2rem, 7vw, 5.25rem);
-  font-weight: 700;
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-}
+  .section-heading {
+    @apply mt-5 max-w-4xl text-4xl font-bold leading-[1.02] tracking-[-0.05em] text-text-primary sm:text-5xl lg:text-7xl;
+  }
 
-.section-intro {
-  max-width: 42rem;
-  color: #46515a;
-  font-size: 1.05rem;
-  line-height: 1.75;
-}
+  .section-intro {
+    @apply max-w-2xl text-base leading-8 text-text-secondary md:text-lg;
+  }
 
-.paper-panel {
-  background: rgba(255, 253, 248, 0.92);
-  border: 1px solid var(--ink);
-  box-shadow: 5px 5px 0 #d9d5ca;
-}
+  .primary-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3 text-sm font-semibold text-white shadow-float transition duration-200 hover:-translate-y-0.5 hover:shadow-card;
+  }
 
-.ink-button,
-.outline-button {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.25rem;
-  border: 1px solid var(--ink);
-  font-family: 'IBM Plex Mono', Consolas, monospace;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-}
+  .secondary-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-semibold text-text-primary shadow-soft transition duration-200 hover:-translate-y-0.5 hover:border-blue-300 hover:text-primary;
+  }
 
-.ink-button {
-  background: var(--ink);
-  color: white;
-  box-shadow: 4px 4px 0 var(--orange);
-}
-
-.outline-button {
-  background: var(--paper-bright);
-  color: var(--ink);
-  box-shadow: 4px 4px 0 #cbc7bc;
-}
-
-.ink-button:hover,
-.outline-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--orange);
+  .surface-card {
+    @apply rounded-2xl border border-border bg-white shadow-soft;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

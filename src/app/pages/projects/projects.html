@@ -1,82 +1,86 @@
 <div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">
-      <p class="editorial-kicker">03 / Selected work</p>
-      <h2 class="section-heading">Proof, not promises.</h2>
+      <p class="section-kicker">Selected work</p>
+      <h2 class="section-heading">Complex products, clearly engineered.</h2>
     </div>
-    <p class="section-intro lg:col-span-5 lg:pt-9">
-      Enterprise platforms, real-time operations, payment integrations and product interfaces -
-      documented with enough detail to understand the engineering behind each result.
+    <p class="section-intro lg:col-span-5">
+      Enterprise platforms, real-time operations, payment integrations and product interfaces—
+      with enough detail to understand the engineering behind each result.
     </p>
   </header>
 
-  <div class="project-filters" aria-label="Filter projects">
+  <div class="mt-12 flex max-w-full gap-2 overflow-x-auto rounded-2xl border border-border bg-white p-2 shadow-soft" aria-label="Filter projects">
     @for (filter of filters; track filter.id) {
       <button type="button" (click)="setFilter(filter.id)"
-              [class.project-filter--active]="activeFilter === filter.id"
+              class="shrink-0 rounded-xl px-4 py-2.5 text-xs font-semibold text-text-secondary transition hover:bg-slate-100 hover:text-text-primary"
+              [class.bg-text-primary]="activeFilter === filter.id"
+              [class.text-white]="activeFilter === filter.id"
               [attr.aria-pressed]="activeFilter === filter.id">
         {{ filter.label }}
       </button>
     }
   </div>
 
-  <div class="mt-10 border-t border-text-primary">
+  <div class="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
     @for (project of filteredProjects; track project.title; let index = $index) {
-      <article class="project-row">
-        <div class="project-row__number">{{ (index + 1).toString().padStart(2, '0') }}</div>
-
-        <div class="project-row__body">
+      <article class="surface-card group flex min-h-full flex-col overflow-hidden p-6 transition duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-card md:p-8">
+        <div class="flex items-start justify-between gap-4">
           <div class="flex flex-wrap items-center gap-2">
-            <span class="project-row__category">{{ getCategoryLabel(project.category) }}</span>
+            <span class="rounded-full bg-blue-50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-primary">{{ getCategoryLabel(project.category) }}</span>
             @if (project.badge) {
-              <span class="project-row__badge">{{ project.badge }}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1.5 text-[10px] font-semibold text-text-secondary">{{ project.badge }}</span>
             }
             @if (project.isPrivate) {
-              <span class="project-row__private">Private / NDA</span>
+              <span class="rounded-full bg-amber-50 px-3 py-1.5 text-[10px] font-semibold text-amber-700">Private / NDA</span>
             }
           </div>
-
-          <h3>{{ project.title }}</h3>
-          <p class="project-row__description">{{ project.description }}</p>
-
-          @if (project.highlights && project.highlights.length > 0) {
-            <details class="project-row__details">
-              <summary>Engineering highlights</summary>
-              <ul>
-                @for (highlight of project.highlights; track highlight) {
-                  <li>{{ highlight }}</li>
-                }
-              </ul>
-            </details>
-          }
-
-          <ul class="project-row__stack" aria-label="Technologies used">
-            @for (tech of project.technologies; track tech) {
-              <li>{{ tech }}</li>
-            }
-          </ul>
+          <span class="font-tajawal text-xs font-semibold text-slate-300">{{ (index + 1).toString().padStart(2, '0') }}</span>
         </div>
 
-        <div class="project-row__actions">
+        <h3 class="mt-7 text-2xl font-bold leading-tight tracking-[-0.03em] text-text-primary md:text-3xl">{{ project.title }}</h3>
+        <p class="project-description mt-4 text-sm leading-7 text-text-secondary">{{ project.description }}</p>
+
+        @if (project.highlights && project.highlights.length > 0) {
+          <details class="project-details mt-5 rounded-xl border border-border bg-slate-50 p-4">
+            <summary class="cursor-pointer text-xs font-semibold text-text-primary">Engineering highlights</summary>
+            <ul class="mt-3 space-y-2 text-xs leading-5 text-text-secondary">
+              @for (highlight of project.highlights; track highlight) {
+                <li class="flex gap-2"><span class="mt-1 text-primary">•</span><span>{{ highlight }}</span></li>
+              }
+            </ul>
+          </details>
+        }
+
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Technologies used">
+          @for (tech of project.technologies; track tech) {
+            <li class="rounded-lg border border-border bg-white px-2.5 py-1.5 font-tajawal text-[9px] font-medium text-text-muted">{{ tech }}</li>
+          }
+        </ul>
+
+        <div class="mt-auto flex flex-wrap gap-3 pt-7">
           @if (project.demo) {
-            <a [href]="project.demo" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a>
+            <a class="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-primary-dark"
+               [href]="project.demo" target="_blank" rel="noopener noreferrer">Live site <span aria-hidden="true">↗</span></a>
           }
           @if (project.github) {
-            <a [href]="project.github" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a>
+            <a class="inline-flex items-center gap-2 rounded-xl border border-border bg-white px-4 py-2.5 text-xs font-semibold text-text-primary transition hover:border-blue-300 hover:text-primary"
+               [href]="project.github" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
           }
           @if (!project.demo && !project.github && project.isPrivate) {
-            <span>Case study available on request</span>
+            <span class="inline-flex items-center rounded-xl bg-slate-100 px-4 py-2.5 text-xs font-medium text-text-muted">Case study available on request</span>
           }
         </div>
       </article>
     }
   </div>
 
-  <div class="mt-12 flex flex-col items-start justify-between gap-5 border border-text-primary bg-background-card p-6 md:flex-row md:items-center">
+  <div class="mt-10 flex flex-col items-start justify-between gap-6 overflow-hidden rounded-2xl bg-gradient-dark p-7 text-white shadow-card md:flex-row md:items-center md:p-9">
     <div>
-      <p class="font-tajawal text-[10px] font-semibold uppercase tracking-wider text-secondary">Open archive</p>
-      <p class="mt-2 text-lg font-semibold">Browse experiments, learning projects and active repositories.</p>
+      <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-blue-300">Open-source archive</p>
+      <p class="mt-2 text-xl font-semibold">Explore active repositories, experiments and learning projects.</p>
     </div>
-    <a class="outline-button" href="https://github.com/AhmedSalem104" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a>
+    <a class="inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-text-primary transition hover:-translate-y-0.5"
+       href="https://github.com/AhmedSalem104" target="_blank" rel="noopener noreferrer">View GitHub profile ↗</a>
   </div>
 </div>

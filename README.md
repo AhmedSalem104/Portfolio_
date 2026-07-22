@@ -1,6 +1,6 @@
 # Ahmed Salem - Portfolio
 
-An editorial-style personal portfolio for Ahmed Salem, Senior Full-Stack Developer (.NET and Angular).
+A modern product-style personal portfolio for Ahmed Salem, Senior Full-Stack Developer (.NET and Angular).
 
 ## Stack
 

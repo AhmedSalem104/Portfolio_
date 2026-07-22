@@ -1,36 +1,37 @@
 <div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
-  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">
-      <p class="editorial-kicker">02 / Technical stack</p>
-      <h2 class="section-heading">Depth over decoration.</h2>
+      <p class="section-kicker">Technical depth</p>
+      <h2 class="section-heading">A stack shaped by production.</h2>
     </div>
-    <p class="section-intro lg:col-span-5 lg:pt-9">
-      A working toolkit shaped by real production constraints: performance, security,
-      integration, maintainability and teams that need to move quickly.
+    <p class="section-intro lg:col-span-5">
+      Tools chosen around performance, security, integration and maintainability—not technology
+      trends for their own sake.
     </p>
   </header>
 
-  <div class="mt-16 grid grid-cols-1 border border-text-primary lg:grid-cols-2">
+  <div class="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
     @for (category of skillCategories; track category.title; let categoryIndex = $index) {
-      <article class="bg-background-card p-6 md:p-8" [class.border-b]="categoryIndex === 0" [class.lg:border-b-0]="categoryIndex === 0" [class.lg:border-r]="categoryIndex === 0" [class.border-text-primary]="true">
-        <div class="flex items-end justify-between border-b border-border pb-4">
+      <article class="surface-card overflow-hidden p-6 md:p-8">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Core discipline 0{{ categoryIndex + 1 }}</p>
+            <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.14em] text-primary">Core discipline 0{{ categoryIndex + 1 }}</p>
             <h3 class="mt-2 text-2xl font-bold tracking-tight">{{ category.title }}</h3>
+            <p class="mt-1 text-sm text-text-muted">{{ category.subtitle }}</p>
           </div>
-          <span class="hidden font-tajawal text-[10px] uppercase text-text-muted sm:block">Measured from production work</span>
+          <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-50 text-xl text-primary" aria-hidden="true">{{ categoryIndex === 0 ? '⌘' : '{ }' }}</span>
         </div>
 
-        <div class="mt-6 space-y-5">
+        <div class="mt-8 space-y-5">
           @for (skill of category.skills; track skill.name) {
             <div>
               <div class="mb-2 flex items-center justify-between gap-4">
-                <span class="text-sm font-semibold">{{ skill.name }}</span>
-                <span class="font-tajawal text-[10px] font-semibold text-text-muted">{{ skill.level }} / 100</span>
+                <span class="text-sm font-semibold text-text-primary">{{ skill.name }}</span>
+                <span class="rounded-full bg-slate-100 px-2 py-1 font-tajawal text-[10px] font-semibold text-text-muted">{{ skill.level }}%</span>
               </div>
-              <div class="h-2 border border-text-primary bg-background-elevated" role="progressbar"
+              <div class="h-2 overflow-hidden rounded-full bg-slate-100" role="progressbar"
                    [attr.aria-label]="skill.name" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="skill.level">
-                <div class="h-full bg-primary" [style.width.%]="skill.level"></div>
+                <div class="h-full rounded-full bg-gradient-primary" [style.width.%]="skill.level"></div>
               </div>
             </div>
           }
@@ -39,24 +40,25 @@
     }
   </div>
 
-  <div class="mt-20 flex items-end justify-between gap-6 border-b border-text-primary pb-5">
+  <div class="mt-24 flex flex-col justify-between gap-5 md:flex-row md:items-end">
     <div>
-      <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Technology index</p>
-      <h3 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">The complete toolbox</h3>
+      <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">Technology map</p>
+      <h3 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">The complete toolbox</h3>
     </div>
-    <p class="hidden max-w-sm text-right text-sm leading-6 text-text-muted md:block">Grouped by the problem each technology helps solve.</p>
+    <p class="max-w-md text-sm leading-7 text-text-muted">Grouped by the real engineering problem each technology helps solve.</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
     @for (techCategory of techCategories; track techCategory.title; let index = $index) {
-      <article class="skill-index-card">
+      <article class="surface-card p-6 transition duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-card">
         <div class="flex items-start justify-between gap-4">
-          <h4 class="text-lg font-bold leading-tight">{{ techCategory.title }}</h4>
-          <span class="font-tajawal text-[10px] font-semibold text-secondary">{{ (index + 1).toString().padStart(2, '0') }}</span>
+          <div class="grid h-10 w-10 place-items-center rounded-xl bg-slate-100 font-tajawal text-xs font-bold text-primary">{{ (index + 1).toString().padStart(2, '0') }}</div>
+          <span class="h-2.5 w-2.5 rounded-full bg-blue-400 shadow-glow"></span>
         </div>
-        <ul class="mt-5 flex flex-wrap gap-x-2 gap-y-2" aria-label="Technologies">
+        <h4 class="mt-5 text-lg font-bold leading-tight">{{ techCategory.title }}</h4>
+        <ul class="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
           @for (item of techCategory.items; track item.name) {
-            <li class="border-b border-border pb-0.5 text-xs text-text-secondary">{{ item.name }}</li>
+            <li class="rounded-lg border border-border bg-slate-50 px-2.5 py-1.5 text-xs font-medium text-text-secondary">{{ item.name }}</li>
           }
         </ul>
       </article>

@@ -2,11 +2,11 @@
 <app-header [isScrolled]="isScrolled"></app-header>
 
 <main>
-  <section id="home">
+  <section id="home" class="scroll-mt-20">
     <app-home></app-home>
   </section>
 
-  <section id="about">
+  <section id="about" class="scroll-mt-20 bg-white/55">
     @defer (on viewport) {
       <app-about></app-about>
     } @placeholder {
@@ -14,7 +14,7 @@
     }
   </section>
 
-  <section id="skills">
+  <section id="skills" class="scroll-mt-20">
     @defer (on viewport) {
       <app-skills></app-skills>
     } @placeholder {
@@ -22,7 +22,7 @@
     }
   </section>
 
-  <section id="projects">
+  <section id="projects" class="scroll-mt-20 bg-white/55">
     @defer (on viewport) {
       <app-projects></app-projects>
     } @placeholder {
@@ -30,7 +30,7 @@
     }
   </section>
 
-  <section id="contact">
+  <section id="contact" class="scroll-mt-20">
     @defer (on viewport) {
       <app-contact></app-contact>
     } @placeholder {

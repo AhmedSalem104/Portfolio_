@@ -1,60 +1,55 @@
 <div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
   @if (notification.show) {
     <div class="contact-toast" [class.contact-toast--error]="notification.type === 'error'" role="status" aria-live="polite">
-      <div>
-        <strong>{{ notification.title }}</strong>
-        <p>{{ notification.message }}</p>
-      </div>
+      <div><strong>{{ notification.title }}</strong><p>{{ notification.message }}</p></div>
       <button type="button" (click)="closeNotification()" aria-label="Close notification">×</button>
     </div>
   }
 
-  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">
-      <p class="editorial-kicker">04 / Contact</p>
-      <h2 class="section-heading">Let’s make the next thing useful.</h2>
+      <p class="section-kicker">Start a conversation</p>
+      <h2 class="section-heading">Have something ambitious in mind?</h2>
     </div>
-    <p class="section-intro lg:col-span-5 lg:pt-9">
+    <p class="section-intro lg:col-span-5">
       Share the product, role or engineering problem you are working on. Expect a direct reply,
       usually within one business day.
     </p>
   </header>
 
-  <div class="mt-16 grid grid-cols-1 border border-text-primary bg-background-card lg:grid-cols-12">
-    <aside class="contact-ledger lg:col-span-5">
-      <div class="contact-ledger__header">
-        <span>Direct channels</span><span class="contact-ledger__status">Available</span>
-      </div>
+  <div class="mt-14 grid grid-cols-1 overflow-hidden rounded-[2rem] border border-border bg-white shadow-card lg:grid-cols-12">
+    <aside class="relative overflow-hidden bg-gradient-dark p-7 text-white sm:p-9 lg:col-span-5 lg:p-10">
+      <div class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl"></div>
+      <div class="relative">
+        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Available for selected opportunities</div>
+        <h3 class="mt-6 text-3xl font-bold tracking-tight">Let’s build something that works beautifully.</h3>
+        <p class="mt-4 text-sm leading-7 text-slate-300">Choose the channel that suits you, or send the short brief and I’ll reply by email.</p>
 
-      <a href="mailto:ahmedsalem1041998@gmail.com" class="contact-line">
-        <span>01 / Email</span><strong>ahmedsalem1041998&#64;gmail.com</strong><em>↗</em>
-      </a>
-      <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer" class="contact-line">
-        <span>02 / WhatsApp</span><strong>+20 101 581 9700</strong><em>↗</em>
-      </a>
-      <a href="tel:+201015819700" class="contact-line">
-        <span>03 / Phone</span><strong>+20 101 581 9700</strong><em>↗</em>
-      </a>
-      <div class="contact-line">
-        <span>04 / Base</span><strong>Nasr City, Cairo, Egypt</strong><em>•</em>
-      </div>
+        <div class="mt-9 space-y-3">
+          <a href="mailto:ahmedsalem1041998@gmail.com" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
+            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">Email</small><strong class="mt-1 block break-all text-sm">ahmedsalem1041998&#64;gmail.com</strong></span><span aria-hidden="true">↗</span>
+          </a>
+          <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
+            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">WhatsApp</small><strong class="mt-1 block text-sm">+20 101 581 9700</strong></span><span aria-hidden="true">↗</span>
+          </a>
+          <a href="tel:+201015819700" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
+            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">Phone</small><strong class="mt-1 block text-sm">+20 101 581 9700</strong></span><span aria-hidden="true">↗</span>
+          </a>
+        </div>
 
-      <div class="contact-ledger__profiles">
-        <a href="https://github.com/AhmedSalem104" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c" target="_blank" rel="noopener noreferrer">Wuzzuf ↗</a>
+        <div class="mt-8 flex flex-wrap gap-4 text-xs font-semibold text-slate-300">
+          <a class="hover:text-white" href="https://github.com/AhmedSalem104" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="hover:text-white" href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="hover:text-white" href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c" target="_blank" rel="noopener noreferrer">Wuzzuf ↗</a>
+        </div>
+        <button type="button" class="mt-8 rounded-xl border border-white/15 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10" (click)="copyEmail()">Copy email address</button>
       </div>
-
-      <button type="button" class="contact-copy" (click)="copyEmail()">Copy email address</button>
     </aside>
 
-    <div class="contact-form-shell lg:col-span-7">
+    <div class="p-7 sm:p-9 lg:col-span-7 lg:p-12">
       <div class="mb-8 flex items-start justify-between gap-4">
-        <div>
-          <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Message desk</p>
-          <h3 class="mt-2 text-3xl font-bold tracking-tight">Send a brief</h3>
-        </div>
-        <span class="font-tajawal text-[10px] uppercase text-text-muted">* Required</span>
+        <div><p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">Message desk</p><h3 class="mt-2 text-3xl font-bold tracking-tight">Send a brief</h3></div>
+        <span class="text-[10px] uppercase tracking-wider text-text-muted">* Required</span>
       </div>
 
       <form (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
@@ -67,9 +62,7 @@
           <input id="email" name="email" type="email" [(ngModel)]="formData.email" maxlength="100" placeholder=" " autocomplete="email"
                  required (blur)="emailTouched = true" (input)="emailTouched = true" [attr.aria-invalid]="showEmailError">
           <label for="email">Email address <b>*</b></label>
-          @if (showEmailError) {
-            <p class="field-error">Enter a complete email address, for example name&#64;company.com.</p>
-          }
+          @if (showEmailError) { <p class="field-error">Enter a complete email address, for example name&#64;company.com.</p> }
         </div>
 
         <div class="floating-field floating-field--textarea" [class.floating-field--error]="showMessageError">
@@ -77,30 +70,19 @@
                     (blur)="messageTouched = true" (input)="messageTouched = true" [attr.aria-invalid]="showMessageError"></textarea>
           <label for="message">Project or opportunity <b>*</b></label>
           <span class="field-count" [class.field-count--warning]="messageCharCount > 900">{{ messageCharCount }} / 1000</span>
-          @if (showMessageError) {
-            <p class="field-error">Tell me a little more - at least 5 characters.</p>
-          }
+          @if (showMessageError) { <p class="field-error">Tell me a little more—at least 5 characters.</p> }
         </div>
 
-        @if (state === 'error' && errorMessage) {
-          <p class="form-status form-status--error" role="alert">{{ errorMessage }}</p>
-        }
+        @if (state === 'error' && errorMessage) { <p class="form-status" role="alert">{{ errorMessage }}</p> }
 
         <button type="submit" class="send-button" [disabled]="!isFormValid || state === 'sending'">
-          @if (state === 'sending') {
-            <span class="send-button__spinner" aria-hidden="true"></span><span>Sending securely...</span>
-          } @else if (state === 'success') {
-            <span aria-hidden="true">✓</span><span>Message sent</span>
-          } @else if (state === 'error') {
-            <span aria-hidden="true">↗</span><span>Opening email backup...</span>
-          } @else {
-            <span>Send message</span><span aria-hidden="true">→</span>
-          }
+          @if (state === 'sending') { <span class="send-button__spinner" aria-hidden="true"></span><span>Sending securely...</span> }
+          @else if (state === 'success') { <span aria-hidden="true">✓</span><span>Message sent</span> }
+          @else if (state === 'error') { <span aria-hidden="true">↗</span><span>Opening email backup...</span> }
+          @else { <span>Send message</span><span aria-hidden="true">→</span> }
         </button>
 
-        <p class="mt-4 font-tajawal text-[10px] leading-5 text-text-muted">
-          Your message is delivered through FormSubmit. This website does not store form data.
-        </p>
+        <p class="mt-4 text-[10px] leading-5 text-text-muted">Your message is delivered through FormSubmit. This website does not store form data.</p>
       </form>
     </div>
   </div>

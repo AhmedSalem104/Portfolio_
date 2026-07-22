@@ -201,7 +201,7 @@ export class ProjectsComponent {
       title: 'Personal Portfolio',
       category: 'production',
       badge: 'Angular 20',
-      description: 'Editorial, accessible personal portfolio built as a fast Angular single-page experience. Includes resilient contact delivery through FormSubmit with a mail fallback, project filtering, reduced-motion support, and a print-inspired responsive design.',
+      description: 'Modern, accessible personal portfolio built as a fast Angular single-page experience. Includes resilient contact delivery through FormSubmit with a mail fallback, project filtering, reduced-motion support, and a responsive product-style interface.',
       technologies: ['Angular 20.3', 'TypeScript', 'Tailwind CSS', 'FormSubmit', 'Accessibility', 'Vercel'],
       demo: 'https://ahmedsalem-portfolio.vercel.app',
       github: 'https://github.com/AhmedSalem104/Portfolio_',
