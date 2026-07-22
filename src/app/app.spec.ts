@@ -42,4 +42,17 @@ describe('App', () => {
     expect(stats).toContain('5+');
     expect(stats).toContain('579+');
   });
+
+  it('should highlight the speaking engagement from the CV', () => {
+    const fixture = TestBed.createComponent(AboutComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('.speaker-highlight')?.textContent).toContain(
+      'Guest Speaker — Career Bridge Workshop'
+    );
+    expect(compiled.querySelector('.speaker-highlight')?.textContent).toContain(
+      'Arab Open University'
+    );
+  });
 });
