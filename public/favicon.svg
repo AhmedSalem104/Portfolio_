@@ -1,18 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#009688;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00C48C;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-
-  <!-- Background Circle -->
-  <circle cx="50" cy="50" r="48" fill="url(#grad1)"/>
-
-  <!-- Code Brackets -->
-  <path d="M 30 30 L 20 50 L 30 70" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 70 30 L 80 50 L 70 70" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Forward Slash -->
-  <line x1="45" y1="65" x2="55" y2="35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ahmed Salem">
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="#0f172a"/>
+  <path d="M13 49 28.4 14h7.2L51 49h-9.2l-3.1-7.8H25.1L22 49h-9Zm15.1-15.4h7.6L32 23.9l-3.9 9.7Z" fill="#fff"/>
+  <path d="M45 14h7v7h-7z" fill="#3b82f6"/>
 </svg>
