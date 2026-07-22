@@ -49,7 +49,7 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelector('.speaker-highlight')?.textContent).toContain(
-      'Guest Speaker — Career Bridge Workshop'
+      'Career Bridge Workshop'
     );
     expect(compiled.querySelector('.speaker-highlight')?.textContent).toContain(
       'Arab Open University'

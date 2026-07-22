@@ -31,10 +31,10 @@ module.exports = {
         tajawal: ['"Cascadia Code"', '"SFMono-Regular"', 'Consolas', 'monospace'],
       },
       borderRadius: {
-        default: '0.625rem',
-        lg: '0.75rem',
-        xl: '1rem',
-        '2xl': '1.25rem',
+        default: '0.5rem',
+        lg: '0.625rem',
+        xl: '0.75rem',
+        '2xl': '0.875rem',
       },
       boxShadow: {
         soft: '0 10px 35px rgba(15, 23, 42, 0.07)',
