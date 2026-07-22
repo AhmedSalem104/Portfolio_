@@ -1,275 +1,101 @@
-<div class="min-h-screen pt-24 pb-16 bg-background">
-  <div class="container mx-auto px-6">
-    <!-- Page Title -->
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-text-primary via-primary-light to-accent bg-clip-text text-transparent font-cairo mb-4">About Me</h1>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-    </div>
-
-    <!-- Professional Summary -->
-    <div class="bg-background-card rounded-xl border border-border shadow-card p-8 mb-8 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:border-primary"
-         data-aos="fade-right"
-         data-aos-duration="1000">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-4">Professional Summary</h2>
-      <p class="text-text-secondary font-cairo leading-relaxed mb-4">
-        <span class="text-text-primary font-semibold">Senior Full-Stack Software Engineer</span> with
-        <span class="text-accent font-semibold">5+ years</span> of experience designing and shipping production-grade
-        enterprise web applications across <span class="text-primary font-semibold">.NET 8, ASP.NET Core, and Angular (17 - 21)</span>.
+<div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+  <div class="grid grid-cols-1 gap-10 lg:grid-cols-12">
+    <header class="lg:col-span-5">
+      <p class="editorial-kicker">01 / Profile</p>
+      <h2 class="section-heading">Built for the whole lifecycle.</h2>
+    </header>
+    <div class="lg:col-span-7 lg:pt-8">
+      <p class="section-intro text-xl md:text-2xl">
+        Five-plus years of turning complicated product requirements into reliable,
+        maintainable software - across architecture, APIs, interfaces, delivery and operations.
       </p>
-      <p class="text-text-secondary font-cairo leading-relaxed mb-4">
-        Proven expertise in
-        <span class="text-accent">Clean Architecture (6 layers)</span>,
-        <span class="text-accent">CQRS</span>,
-        RESTful API design, real-time systems with
-        <span class="text-accent">SignalR + Redis backplane</span>,
-        payment gateway integration (Paymob, Apple Pay, Stripe), and
-        <span class="text-accent">Microsoft Azure</span> deployment.
+      <p class="mt-5 max-w-2xl text-base leading-7 text-text-secondary">
+        I work primarily with .NET 8, ASP.NET Core and Angular 17-21. My strongest work sits
+        where backend depth meets product thinking: real-time systems, payment flows, secure
+        authentication, high-volume APIs and the dashboards teams use every day.
       </p>
-      <p class="text-text-secondary font-cairo leading-relaxed">
-        Skilled across the full software lifecycle: system design, database modeling, API engineering,
-        responsive UI, CI/CD, and production hardening. Strong foundation in
-        <span class="text-primary font-semibold">OOP, SOLID principles, design patterns, and Domain-Driven Design</span>.
-      </p>
+    </div>
+  </div>
 
-      <!-- Quick Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-border">
-        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="200">
-          <div class="relative inline-block">
-            <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-all"></div>
-            <div class="relative">
-              <span [appCountUp]="5" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
-            </div>
-          </div>
-          <p class="text-text-muted font-cairo text-sm mt-2">Years Experience</p>
-        </div>
-        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="300">
-          <div class="relative inline-block">
-            <div class="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:bg-secondary/40 transition-all"></div>
-            <div class="relative">
-              <span [appCountUp]="15" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
-            </div>
-          </div>
-          <p class="text-text-muted font-cairo text-sm mt-2">Production Projects</p>
-        </div>
-        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="400">
-          <div class="relative inline-block">
-            <div class="absolute inset-0 bg-accent/20 rounded-full blur-xl group-hover:bg-accent/40 transition-all"></div>
-            <div class="relative">
-              <span [appCountUp]="579" suffix="+" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
-            </div>
-          </div>
-          <p class="text-text-muted font-cairo text-sm mt-2">REST API Endpoints</p>
-        </div>
-        <div class="text-center group cursor-default" data-aos="zoom-in" data-aos-delay="500">
-          <div class="relative inline-block">
-            <div class="absolute inset-0 bg-success/20 rounded-full blur-xl group-hover:bg-success/40 transition-all"></div>
-            <div class="relative">
-              <span [appCountUp]="20" class="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-cairo"></span>
-            </div>
-          </div>
-          <p class="text-text-muted font-cairo text-sm mt-2">GitHub Repositories</p>
-        </div>
-      </div>
+  <div class="mt-16 grid grid-cols-2 border border-text-primary bg-background-card md:grid-cols-4">
+    <div class="border-b border-r border-text-primary p-5 md:border-b-0 md:p-7">
+      <span [appCountUp]="5" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-6xl">5+</span>
+      <span class="mt-2 block font-tajawal text-[11px] uppercase tracking-wider text-text-secondary">Years experience</span>
+    </div>
+    <div class="border-b border-text-primary p-5 md:border-b-0 md:border-r md:p-7">
+      <span [appCountUp]="15" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-6xl">15+</span>
+      <span class="mt-2 block font-tajawal text-[11px] uppercase tracking-wider text-text-secondary">Production projects</span>
+    </div>
+    <div class="border-r border-text-primary p-5 md:p-7">
+      <span [appCountUp]="579" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-6xl">579+</span>
+      <span class="mt-2 block font-tajawal text-[11px] uppercase tracking-wider text-text-secondary">API endpoints</span>
+    </div>
+    <div class="p-5 md:p-7">
+      <span [appCountUp]="20" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-6xl">20+</span>
+      <span class="mt-2 block font-tajawal text-[11px] uppercase tracking-wider text-text-secondary">GitHub repositories</span>
+    </div>
+  </div>
+
+  <div class="mt-20 grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <div class="lg:col-span-3">
+      <p class="font-tajawal text-xs font-semibold uppercase tracking-[0.16em] text-secondary">Experience log</p>
+      <p class="mt-3 max-w-xs text-sm leading-6 text-text-muted">A track record across enterprise products, client delivery and independent work.</p>
     </div>
 
-    <!-- Work Experience -->
-    <div class="bg-background-card rounded-xl border border-border shadow-card p-8 mb-8 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:border-primary"
-         data-aos="fade-left"
-         data-aos-duration="1000"
-         data-aos-delay="200">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-6">Professional Experience</h2>
-
-      <!-- BDC - Current -->
-      <div class="mb-8 border-l-4 border-success pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8 bg-gradient-to-r from-success/10 to-transparent rounded-r-lg p-4"
-           data-aos="fade-up"
-           data-aos-delay="200">
-        <div class="flex items-start justify-between mb-2 flex-wrap gap-2">
-          <div>
-            <h3 class="text-xl font-bold text-text-primary font-cairo">Senior Full-Stack Developer</h3>
-            <p class="text-success font-cairo font-semibold">BDC (Business Development Company)</p>
-          </div>
-          <span class="bg-success text-white px-3 py-1 rounded-full text-xs font-cairo font-bold animate-pulse">Current</span>
+    <div class="lg:col-span-9">
+      <article class="grid border-t border-text-primary py-8 md:grid-cols-12 md:gap-6">
+        <div class="md:col-span-3">
+          <p class="font-tajawal text-xs font-semibold text-primary">2025 - PRESENT</p>
+          <p class="mt-1 text-sm text-text-muted">BDC, Cairo</p>
         </div>
-        <p class="text-text-muted font-cairo mb-3">October 2025 - Present</p>
-        <p class="text-text-secondary font-cairo mb-4">
-          Building innovative enterprise web solutions and contributing to cutting-edge production-grade projects
-          using modern <span class="text-text-primary font-semibold">.NET 8</span> and <span class="text-text-primary font-semibold">Angular</span> stack.
-        </p>
-        <ul class="list-disc list-inside text-text-secondary font-cairo space-y-2 text-sm">
-          <li>Architect and implement scalable RESTful APIs using <span class="text-accent">ASP.NET Core Web API</span> with Clean Architecture</li>
-          <li>Build modern responsive front-ends with <span class="text-accent">Angular (latest)</span> standalone components and Angular Signals</li>
-          <li>Design and optimize <span class="text-accent">SQL Server</span> databases with EF Core 8, including stored procedures and query optimization</li>
-          <li>Integrate real-time features via SignalR and distributed caching with Redis</li>
-          <li>Apply SOLID principles, design patterns, and Clean Architecture for long-term maintainability</li>
-          <li>Conduct code reviews and contribute to technical decisions in an Agile/Scrum environment</li>
-        </ul>
-      </div>
-
-      <!-- Solution Software -->
-      <div class="mb-8 border-l-4 border-primary pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-           data-aos="fade-up"
-           data-aos-delay="300">
-        <div class="flex items-start justify-between mb-2 flex-wrap gap-2">
-          <div>
-            <h3 class="text-xl font-bold text-text-primary font-cairo">Frontend &amp; Backend Developer</h3>
-            <p class="text-primary font-cairo font-semibold">Solution Software</p>
+        <div class="mt-4 md:col-span-9 md:mt-0">
+          <h3 class="text-2xl font-bold tracking-tight">Senior Full-Stack Developer</h3>
+          <p class="mt-3 leading-7 text-text-secondary">Leading delivery of enterprise platforms with .NET 8, Angular and Azure. Architecting six-layer systems, hybrid CQRS, SignalR/Redis real-time services, secure payment flows and production deployment pipelines.</p>
+          <div class="mt-5 flex flex-wrap gap-2 font-tajawal text-[10px] font-semibold uppercase tracking-wider text-primary">
+            <span class="border border-primary px-2 py-1">Architecture</span><span class="border border-primary px-2 py-1">Mentoring</span><span class="border border-primary px-2 py-1">Azure</span>
           </div>
         </div>
-        <p class="text-text-muted font-cairo mb-3">May 2021 - September 2025</p>
-        <p class="text-text-secondary font-cairo mb-4">
-          Developed enterprise web applications for <span class="text-text-primary font-semibold">Saudi Arabian municipality clients</span>
-          across warehouse management, equipment maintenance, and real estate investment platforms.
-        </p>
-        <ul class="list-disc list-inside text-text-secondary font-cairo space-y-2 text-sm">
-          <li>Architected and implemented scalable RESTful APIs using ASP.NET MVC and ASP.NET Core with Code-First Entity Framework approach</li>
-          <li>Designed and developed multi-screen UI architectures (popup, flat, header-detail) for complex enterprise data workflows</li>
-          <li>Integrated <span class="text-accent">Crystal Reports</span> for advanced reporting, analytics, and business intelligence dashboards</li>
-          <li>Implemented <span class="text-accent">Role-Based Access Control (RBAC)</span> with fine-grained permissions across multiple user roles</li>
-          <li>Applied SOLID principles, design patterns, and Clean Architecture practices for maintainability and scalability</li>
-          <li>Collaborated in Agile/Scrum environment with cross-functional teams of designers, QA engineers, and product managers</li>
-          <li>Conducted code reviews and contributed to technical decision-making and architectural discussions</li>
-        </ul>
-      </div>
+      </article>
 
-      <!-- Freelance -->
-      <div class="border-l-4 border-secondary pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-           data-aos="fade-up"
-           data-aos-delay="400">
-        <h3 class="text-xl font-bold text-text-primary font-cairo">Freelance Full-Stack Developer</h3>
-        <p class="text-secondary font-cairo mb-2">Self-Employed</p>
-        <p class="text-text-muted font-cairo mb-3">November 2020 - 2021</p>
-        <p class="text-text-secondary font-cairo mb-3">
-          Built end-to-end web platforms for diverse clients across multiple domains.
-        </p>
-        <ul class="list-disc list-inside text-text-secondary font-cairo space-y-2 text-sm">
-          <li>Delivered Angular front-ends integrated with .NET Core backends, RESTful APIs, and SQL Server databases</li>
-          <li>Built platforms for online shopping, donate-medicine, and food delivery (Diet To Door)</li>
-          <li>Designed responsive user interfaces and managed full deployment lifecycle from staging to production</li>
-        </ul>
-      </div>
+      <article class="grid border-t border-text-primary py-8 md:grid-cols-12 md:gap-6">
+        <div class="md:col-span-3">
+          <p class="font-tajawal text-xs font-semibold text-primary">2021 - 2025</p>
+          <p class="mt-1 text-sm text-text-muted">Solution Software</p>
+        </div>
+        <div class="mt-4 md:col-span-9 md:mt-0">
+          <h3 class="text-2xl font-bold tracking-tight">Frontend &amp; Backend Developer</h3>
+          <p class="mt-3 leading-7 text-text-secondary">Delivered municipality platforms for warehouse management, equipment maintenance and real-estate investment. Built REST APIs, complex operational interfaces, Crystal Reports and fine-grained RBAC.</p>
+        </div>
+      </article>
+
+      <article class="grid border-y border-text-primary py-8 md:grid-cols-12 md:gap-6">
+        <div class="md:col-span-3">
+          <p class="font-tajawal text-xs font-semibold text-primary">2020 - 2021</p>
+          <p class="mt-1 text-sm text-text-muted">Independent</p>
+        </div>
+        <div class="mt-4 md:col-span-9 md:mt-0">
+          <h3 class="text-2xl font-bold tracking-tight">Freelance Full-Stack Developer</h3>
+          <p class="mt-3 leading-7 text-text-secondary">Built end-to-end platforms for e-commerce, medicine donation and food delivery, owning responsive UI, API integration, SQL Server and deployment.</p>
+        </div>
+      </article>
     </div>
+  </div>
 
-    <!-- Education & Certifications -->
-    <div class="bg-background-card rounded-xl border border-border shadow-card p-8 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:border-primary"
-         data-aos="fade-right"
-         data-aos-duration="1000"
-         data-aos-delay="400">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-6">Education &amp; Certifications</h2>
-
-      <div class="space-y-6">
-        <!-- Degree -->
-        <div class="border-l-4 border-accent pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-             data-aos="fade-up"
-             data-aos-delay="500">
-          <h3 class="text-xl font-bold text-text-primary font-cairo">Bachelor of Computer Science</h3>
-          <p class="text-secondary font-cairo mb-2">Higher Technological Institute, Egypt</p>
-          <p class="text-text-secondary font-cairo">
-            Graduation: September 2021 &nbsp;|&nbsp; General Grade: <span class="text-accent">Good</span> &nbsp;|&nbsp; Graduation Project: <span class="text-success">Excellent</span>
-          </p>
-        </div>
-
-        <!-- Frontend Diploma -->
-        <div class="border-l-4 border-accent pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-             data-aos="fade-up"
-             data-aos-delay="600">
-          <h3 class="text-xl font-bold text-text-primary font-cairo">Frontend Developer Diploma</h3>
-          <p class="text-secondary font-cairo mb-2">Route Academy</p>
-          <p class="text-text-secondary font-cairo text-sm">
-            HTML5, CSS3, JavaScript, TypeScript, Angular, jQuery, Bootstrap, Tailwind CSS, Sass, Figma
-          </p>
-        </div>
-
-        <!-- Backend Diploma -->
-        <div class="border-l-4 border-accent pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-             data-aos="fade-up"
-             data-aos-delay="700">
-          <h3 class="text-xl font-bold text-text-primary font-cairo">Backend Developer Diploma</h3>
-          <p class="text-secondary font-cairo mb-2">Route Academy</p>
-          <p class="text-text-secondary font-cairo text-sm">
-            C#, OOP, Advanced C#, SQL Server, .NET Core
-          </p>
-        </div>
-
-        <!-- Russian Cultural Center -->
-        <div class="border-l-4 border-accent pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-             data-aos="fade-up"
-             data-aos-delay="800">
-          <h3 class="text-xl font-bold text-text-primary font-cairo">Full Stack Web Development Diploma</h3>
-          <p class="text-secondary font-cairo mb-2">Russian Cultural Center</p>
-          <p class="text-text-secondary font-cairo text-sm">
-            Frontend and Backend with focus on .NET and ASP.NET MVC
-          </p>
-        </div>
-
-        <!-- egy_is -->
-        <div class="border-l-4 border-accent pl-6 transition-all duration-300 hover:border-l-8 hover:pl-8"
-             data-aos="fade-up"
-             data-aos-delay="900">
-          <h3 class="text-xl font-bold text-text-primary font-cairo">Backend Course</h3>
-          <p class="text-secondary font-cairo mb-2">egy_is</p>
-          <p class="text-text-secondary font-cairo text-sm">
-            Agile, UML, C#, OOP fundamentals, ASP.NET MVC Code-First
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Languages -->
-    <div class="bg-background-card rounded-xl border border-border shadow-card p-8 mt-8 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:border-primary"
-         data-aos="fade-left"
-         data-aos-duration="1000"
-         data-aos-delay="600">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-6">Languages</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div data-aos="flip-left" data-aos-delay="800">
-          <h3 class="text-lg font-bold text-text-primary font-cairo mb-2">Arabic</h3>
-          <div class="w-full bg-background-elevated rounded-full h-3 overflow-hidden">
-            <div class="bg-gradient-to-r from-primary to-secondary h-3 rounded-full transition-all duration-1500 hover:animate-pulse" style="width: 100%"></div>
-          </div>
-          <p class="text-text-muted font-cairo mt-1">Native</p>
-        </div>
-        <div data-aos="flip-right" data-aos-delay="1000">
-          <h3 class="text-lg font-bold text-text-primary font-cairo mb-2">English</h3>
-          <div class="w-full bg-background-elevated rounded-full h-3 overflow-hidden">
-            <div class="bg-gradient-to-r from-primary to-accent h-3 rounded-full transition-all duration-1500 hover:animate-pulse" style="width: 75%"></div>
-          </div>
-          <p class="text-text-muted font-cairo mt-1">Intermediate (Professional Working Proficiency)</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Additional Information -->
-    <div class="bg-gradient-to-br from-primary/10 via-secondary/5 to-accent/10 rounded-xl border border-primary/30 shadow-card p-8 mt-8 transition-all duration-300 hover:shadow-glow"
-         data-aos="zoom-in"
-         data-aos-duration="1000"
-         data-aos-delay="700">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-6">Additional Information</h2>
-      <ul class="space-y-3 text-text-secondary font-cairo">
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-success mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Available for full-time, hybrid, or remote opportunities</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-success mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Open to relocation within Egypt and the Gulf region</span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-success mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Active GitHub contributor with <span class="text-primary font-semibold">20 public repositories</span></span>
-        </li>
-        <li class="flex items-start gap-3">
-          <svg class="w-5 h-5 text-success mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-          </svg>
-          <span>Continuous learner — actively shipping with the latest framework releases (<span class="text-accent">Angular 21, .NET 8</span>)</span>
-        </li>
-      </ul>
-    </div>
+  <div class="mt-20 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <article class="paper-panel p-7">
+      <p class="font-tajawal text-[11px] font-semibold uppercase tracking-wider text-secondary">Education</p>
+      <h3 class="mt-5 text-xl font-bold">B.Sc. Computer Science</h3>
+      <p class="mt-2 text-sm leading-6 text-text-secondary">Higher Technological Institute, Egypt<br>Graduated September 2021<br>Graduation project: Excellent</p>
+    </article>
+    <article class="paper-panel p-7">
+      <p class="font-tajawal text-[11px] font-semibold uppercase tracking-wider text-secondary">Speaking</p>
+      <h3 class="mt-5 text-xl font-bold">Career Bridge Workshop</h3>
+      <p class="mt-2 text-sm leading-6 text-text-secondary">Guest speaker at Arab Open University, May 2026, discussing the evolving role of developers in the AI era.</p>
+    </article>
+    <article class="paper-panel p-7">
+      <p class="font-tajawal text-[11px] font-semibold uppercase tracking-wider text-secondary">Languages</p>
+      <h3 class="mt-5 text-xl font-bold">Arabic / English</h3>
+      <p class="mt-2 text-sm leading-6 text-text-secondary">Arabic: native<br>English: professional working proficiency</p>
+    </article>
   </div>
 </div>

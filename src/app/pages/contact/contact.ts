@@ -19,6 +19,8 @@ export class ContactComponent {
 
   state: FormState = 'idle';
   errorMessage = '';
+  emailTouched = false;
+  messageTouched = false;
 
   notification = {
     show: false,
@@ -37,7 +39,19 @@ export class ContactComponent {
   }
 
   get isFormValid(): boolean {
-    return this.isEmailValid && this.formData.message.trim().length >= 5;
+    return this.isEmailValid && this.isMessageValid;
+  }
+
+  get isMessageValid(): boolean {
+    return this.formData.message.trim().length >= 5;
+  }
+
+  get showEmailError(): boolean {
+    return this.emailTouched && !this.isEmailValid;
+  }
+
+  get showMessageError(): boolean {
+    return this.messageTouched && !this.isMessageValid;
   }
 
   get messageCharCount(): number {
@@ -45,7 +59,19 @@ export class ContactComponent {
   }
 
   async onSubmit() {
-    if (this.state === 'sending' || !this.isFormValid) return;
+    if (this.state === 'sending') return;
+
+    this.emailTouched = true;
+    this.messageTouched = true;
+
+    if (!this.isFormValid) {
+      this.showNotification(
+        'error',
+        'Please review the form',
+        'Add a valid email address and a message of at least 5 characters.'
+      );
+      return;
+    }
 
     this.state = 'sending';
     this.errorMessage = '';
@@ -82,6 +108,8 @@ export class ContactComponent {
           'Thank you for reaching out. I will get back to you within 24 hours.'
         );
         this.formData = { name: '', email: '', message: '' };
+        this.emailTouched = false;
+        this.messageTouched = false;
 
         setTimeout(() => {
           if (this.state === 'success') this.state = 'idle';
@@ -114,6 +142,15 @@ export class ContactComponent {
   }
 
   copyEmail() {
+    if (!navigator.clipboard) {
+      this.showNotification(
+        'error',
+        'Copy unavailable',
+        `Please copy ${this.recipient} manually.`
+      );
+      return;
+    }
+
     navigator.clipboard
       .writeText(this.recipient)
       .then(() =>

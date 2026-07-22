@@ -1,141 +1,65 @@
-<div class="min-h-screen pt-24 pb-16 bg-background">
-  <div class="container mx-auto px-6">
-    <!-- Page Title -->
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-text-primary via-primary-light to-accent bg-clip-text text-transparent font-cairo mb-4">
-        Technical Skills
-      </h1>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4 rounded-full"></div>
-      <p class="text-lg text-text-secondary font-cairo max-w-2xl mx-auto">
-        A comprehensive toolkit spanning 5+ years of building production-grade enterprise applications
-      </p>
+<div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+    <div class="lg:col-span-7">
+      <p class="editorial-kicker">02 / Technical stack</p>
+      <h2 class="section-heading">Depth over decoration.</h2>
     </div>
+    <p class="section-intro lg:col-span-5 lg:pt-9">
+      A working toolkit shaped by real production constraints: performance, security,
+      integration, maintainability and teams that need to move quickly.
+    </p>
+  </header>
 
-    <!-- Programming Languages Banner -->
-    <div class="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-2xl border border-primary/30 shadow-card p-6 mb-12"
-         data-aos="fade-up">
-      <h2 class="text-xl font-bold text-text-primary font-cairo mb-4 flex items-center gap-2">
-        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-        </svg>
-        Programming Languages
-      </h2>
-      <div class="flex flex-wrap gap-2">
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">C#</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">TypeScript</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">JavaScript (ES6+)</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">HTML5</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">CSS3</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">T-SQL</span>
-        <span class="px-4 py-2 bg-background-elevated border border-border rounded-lg text-text-primary font-cairo text-sm font-semibold hover:border-primary hover:scale-105 transition-all cursor-default">SCSS / Sass</span>
-      </div>
-    </div>
+  <div class="mt-16 grid grid-cols-1 border border-text-primary lg:grid-cols-2">
+    @for (category of skillCategories; track category.title; let categoryIndex = $index) {
+      <article class="bg-background-card p-6 md:p-8" [class.border-b]="categoryIndex === 0" [class.lg:border-b-0]="categoryIndex === 0" [class.lg:border-r]="categoryIndex === 0" [class.border-text-primary]="true">
+        <div class="flex items-end justify-between border-b border-border pb-4">
+          <div>
+            <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Core discipline 0{{ categoryIndex + 1 }}</p>
+            <h3 class="mt-2 text-2xl font-bold tracking-tight">{{ category.title }}</h3>
+          </div>
+          <span class="hidden font-tajawal text-[10px] uppercase text-text-muted sm:block">Measured from production work</span>
+        </div>
 
-    <!-- Frontend & Backend Skills with Circular Progress -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-      @for (category of skillCategories; track category.title) {
-        <div class="bg-background-card rounded-2xl border border-border shadow-card p-8 transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:border-primary"
-             data-aos="fade-up"
-             data-aos-duration="1000">
-          <div class="flex items-center mb-8">
-            <div class="w-16 h-16 bg-gradient-to-br rounded-xl flex items-center justify-center mr-4 shadow-glow"
-                 [ngClass]="category.gradient">
-              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path [attr.d]="category.iconPath"></path>
-              </svg>
-            </div>
+        <div class="mt-6 space-y-5">
+          @for (skill of category.skills; track skill.name) {
             <div>
-              <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r font-cairo"
-                  [ngClass]="category.gradient">
-                {{ category.title }}
-              </h2>
-              <p class="text-text-muted font-cairo text-sm">{{ category.subtitle }}</p>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            @for (skill of category.skills; track skill.name) {
-              <div class="flex flex-col items-center group"
-                   data-aos="zoom-in"
-                   data-aos-delay="100">
-                <div class="relative w-24 h-24 mb-3">
-                  <svg class="transform -rotate-90 w-24 h-24">
-                    <circle cx="48" cy="48" r="40" stroke="#2e2e4a" stroke-width="8" fill="none"></circle>
-                    <circle cx="48" cy="48" r="40"
-                            [attr.stroke]="skill.color"
-                            stroke-width="8"
-                            fill="none"
-                            stroke-linecap="round"
-                            class="skill-circle transition-all duration-1000"
-                            [style.stroke-dasharray]="251.2"
-                            [style.stroke-dashoffset]="251.2 - (251.2 * skill.level / 100)">
-                    </circle>
-                  </svg>
-                  <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="text-lg font-bold font-cairo group-hover:scale-125 transition-transform"
-                          [style.color]="skill.color">
-                      {{ skill.level }}%
-                    </span>
-                  </div>
-                </div>
-                <h3 class="text-xs font-bold text-text-primary font-cairo text-center group-hover:scale-110 transition-transform leading-tight"
-                    [style.color]="skill.color">
-                  {{ skill.name }}
-                </h3>
+              <div class="mb-2 flex items-center justify-between gap-4">
+                <span class="text-sm font-semibold">{{ skill.name }}</span>
+                <span class="font-tajawal text-[10px] font-semibold text-text-muted">{{ skill.level }} / 100</span>
               </div>
-            }
-          </div>
-        </div>
-      }
-    </div>
-
-    <!-- Detailed Tech Categories -->
-    <div class="space-y-8">
-      <h2 class="text-3xl font-bold text-center bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-cairo mb-8"
-          data-aos="fade-up">
-        Complete Technology Stack
-      </h2>
-
-      @for (techCategory of techCategories; track techCategory.title) {
-        <div class="bg-background-card rounded-2xl border border-border shadow-card p-8 transition-all duration-300 hover:shadow-glow hover:border-primary"
-             data-aos="fade-up"
-             data-aos-duration="800">
-          <div class="flex items-center mb-6">
-            <div class="w-12 h-12 bg-gradient-to-br rounded-xl flex items-center justify-center mr-3 shadow-glow"
-                 [ngClass]="techCategory.gradient">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
-                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
-              </svg>
+              <div class="h-2 border border-text-primary bg-background-elevated" role="progressbar"
+                   [attr.aria-label]="skill.name" aria-valuemin="0" aria-valuemax="100" [attr.aria-valuenow]="skill.level">
+                <div class="h-full bg-primary" [style.width.%]="skill.level"></div>
+              </div>
             </div>
-            <h3 class="text-xl font-bold bg-gradient-to-r bg-clip-text text-transparent font-cairo"
-                [ngClass]="techCategory.gradient">
-              {{ techCategory.title }}
-            </h3>
-          </div>
-
-          <div class="flex flex-wrap gap-2">
-            @for (item of techCategory.items; track item.name) {
-              <span class="px-3 py-1.5 bg-background-elevated border border-border text-text-secondary text-xs rounded-lg font-cairo font-medium transition-all duration-300 hover:scale-105 hover:shadow-glow cursor-default"
-                    [style.border-color]="item.color + '60'"
-                    [style.color]="item.color">
-                {{ item.name }}
-              </span>
-            }
-          </div>
+          }
         </div>
-      }
-    </div>
+      </article>
+    }
+  </div>
 
-    <!-- Final Banner -->
-    <div class="mt-12 text-center"
-         data-aos="fade-up"
-         data-aos-delay="200">
-      <div class="inline-block bg-gradient-to-r from-primary via-secondary to-accent text-white px-8 py-4 rounded-full shadow-glow-lg">
-        <p class="font-cairo font-bold">
-          Continuously shipping with the latest framework releases &mdash; Angular 21, .NET 8
-        </p>
-      </div>
+  <div class="mt-20 flex items-end justify-between gap-6 border-b border-text-primary pb-5">
+    <div>
+      <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Technology index</p>
+      <h3 class="mt-2 text-3xl font-bold tracking-tight md:text-5xl">The complete toolbox</h3>
     </div>
+    <p class="hidden max-w-sm text-right text-sm leading-6 text-text-muted md:block">Grouped by the problem each technology helps solve.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    @for (techCategory of techCategories; track techCategory.title; let index = $index) {
+      <article class="skill-index-card">
+        <div class="flex items-start justify-between gap-4">
+          <h4 class="text-lg font-bold leading-tight">{{ techCategory.title }}</h4>
+          <span class="font-tajawal text-[10px] font-semibold text-secondary">{{ (index + 1).toString().padStart(2, '0') }}</span>
+        </div>
+        <ul class="mt-5 flex flex-wrap gap-x-2 gap-y-2" aria-label="Technologies">
+          @for (item of techCategory.items; track item.name) {
+            <li class="border-b border-border pb-0.5 text-xs text-text-secondary">{{ item.name }}</li>
+          }
+        </ul>
+      </article>
+    }
   </div>
 </div>

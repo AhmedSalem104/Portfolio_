@@ -1,22 +1,224 @@
-/* Typing Cursor Animation */
-.typing-cursor {
-  display: inline-block;
-  margin-left: 3px;
-  animation: blink 1s infinite;
-  font-weight: 300;
+.hero-shell {
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 0 64%, rgba(36, 70, 216, 0.055) 64% 100%),
+    #f3f0e8;
 }
 
-@keyframes blink {
-  0%, 49% {
-    opacity: 1;
-  }
-  50%, 100% {
-    opacity: 0;
-  }
+.hero-ticker {
+  display: flex;
+  min-width: max-content;
+  justify-content: space-around;
+  gap: 3rem;
+  border-block: 1px solid #182027;
+  background: #182027;
+  padding: 0.65rem 1rem;
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-/* Typing Text Styling */
-.typing-text {
-  min-height: 2.5rem;
+.hero-ticker span::before {
+  margin-right: 0.65rem;
+  color: #e9673f;
+  content: '◆';
+}
+
+.hero-title {
+  max-width: 60rem;
+  margin-top: 1.35rem;
+  color: #182027;
+  font-size: clamp(3.5rem, 9.2vw, 8.2rem);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.84;
+}
+
+.hero-title span {
+  position: relative;
+  color: #2446d8;
+  white-space: nowrap;
+}
+
+.hero-title span::after {
+  position: absolute;
+  right: 0;
+  bottom: 0.04em;
+  left: 0;
+  z-index: -1;
+  height: 0.12em;
+  background: #e9673f;
+  content: '';
+  transform: rotate(-1.5deg);
+}
+
+.hero-role {
+  display: flex;
+  max-width: 47rem;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  border-block: 1px solid #c8c6bd;
+  padding: 0.8rem 0;
+}
+
+.hero-role__label {
+  color: #e9673f;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-role strong {
+  color: #182027;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.hero-summary {
+  max-width: 42rem;
+  margin-top: 1.5rem;
+  color: #46515a;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.3rem;
+  margin-top: 2.5rem;
+}
+
+.hero-links a {
+  border-bottom: 1px solid #182027;
+  color: #182027;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-links a:hover {
+  border-color: #e9673f;
+  color: #2446d8;
+}
+
+.profile-sheet {
+  position: relative;
+  border: 1px solid #182027;
+  background: #fffdf8;
+  box-shadow: 9px 9px 0 #2446d8;
+}
+
+.profile-sheet::before {
+  position: absolute;
+  inset: 0.65rem;
+  border: 1px solid #dedbd2;
+  content: '';
+  pointer-events: none;
+}
+
+.profile-sheet__topline,
+.profile-sheet__footer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #182027;
+  padding: 1rem 1.25rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+}
+
+.profile-sheet__dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: #18794e;
+  box-shadow: 0 0 0 4px rgba(24, 121, 78, 0.14);
+}
+
+.profile-sheet__monogram {
+  position: relative;
+  padding: 2rem 1.25rem 0.8rem;
+  color: #182027;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(5.5rem, 12vw, 9rem);
+  font-weight: 600;
+  letter-spacing: -0.12em;
+  line-height: 1;
+}
+
+.profile-sheet__note {
+  position: relative;
+  margin: 0 1.25rem 1.5rem;
+  border-left: 4px solid #e9673f;
+  padding-left: 0.8rem;
+  color: #46515a;
+  line-height: 1.55;
+}
+
+.profile-sheet__facts {
+  position: relative;
+  border-top: 1px solid #182027;
+}
+
+.profile-sheet__facts div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  border-bottom: 1px solid #dedbd2;
+  padding: 0.75rem 1.25rem;
+}
+
+.profile-sheet__facts dt {
+  color: #667078;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.profile-sheet__facts dd {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.profile-sheet__facts dd span {
   display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.35rem;
+  border-radius: 999px;
+  background: #18794e;
+}
+
+.profile-sheet__footer {
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  border: 0;
+  color: #2446d8;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .hero-shell {
+    background: #f3f0e8;
+  }
+
+  .hero-ticker {
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .hero-role {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

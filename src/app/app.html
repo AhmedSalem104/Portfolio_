@@ -1,25 +1,44 @@
-<app-page-loader></app-page-loader>
-<app-scroll-progress></app-scroll-progress>
-<app-header></app-header>
+<app-scroll-progress [progress]="scrollProgress"></app-scroll-progress>
+<app-header [isScrolled]="isScrolled"></app-header>
 
 <main>
   <section id="home">
     <app-home></app-home>
   </section>
+
   <section id="about">
-    <app-about></app-about>
+    @defer (on viewport) {
+      <app-about></app-about>
+    } @placeholder {
+      <div class="min-h-[70vh]" aria-hidden="true"></div>
+    }
   </section>
+
   <section id="skills">
-    <app-skills></app-skills>
+    @defer (on viewport) {
+      <app-skills></app-skills>
+    } @placeholder {
+      <div class="min-h-[70vh]" aria-hidden="true"></div>
+    }
   </section>
+
   <section id="projects">
-    <app-projects></app-projects>
+    @defer (on viewport) {
+      <app-projects></app-projects>
+    } @placeholder {
+      <div class="min-h-[70vh]" aria-hidden="true"></div>
+    }
   </section>
+
   <section id="contact">
-    <app-contact></app-contact>
+    @defer (on viewport) {
+      <app-contact></app-contact>
+    } @placeholder {
+      <div class="min-h-[70vh]" aria-hidden="true"></div>
+    }
   </section>
 </main>
 
 <app-footer></app-footer>
-<app-back-to-top></app-back-to-top>
+<app-back-to-top [isVisible]="showBackToTop" [progress]="scrollProgress"></app-back-to-top>
 <app-floating-contact></app-floating-contact>

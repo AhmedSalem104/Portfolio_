@@ -1,319 +1,107 @@
-<div class="min-h-screen pt-24 pb-16 bg-background">
-  <!-- Professional Notification -->
-  <div *ngIf="notification.show"
-       class="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-6 notification-slide-in">
-    <div [class]="'flex items-start gap-4 p-5 rounded-xl shadow-2xl backdrop-blur-md ' +
-                  (notification.type === 'success'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 border border-green-400/50'
-                    : 'bg-gradient-to-r from-red-500 to-rose-600 border border-red-400/50')">
-      <div class="flex-shrink-0">
-        <svg *ngIf="notification.type === 'success'" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-        </svg>
-        <svg *ngIf="notification.type === 'error'" class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-        </svg>
+<div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+  @if (notification.show) {
+    <div class="contact-toast" [class.contact-toast--error]="notification.type === 'error'" role="status" aria-live="polite">
+      <div>
+        <strong>{{ notification.title }}</strong>
+        <p>{{ notification.message }}</p>
+      </div>
+      <button type="button" (click)="closeNotification()" aria-label="Close notification">×</button>
+    </div>
+  }
+
+  <header class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+    <div class="lg:col-span-7">
+      <p class="editorial-kicker">04 / Contact</p>
+      <h2 class="section-heading">Let’s make the next thing useful.</h2>
+    </div>
+    <p class="section-intro lg:col-span-5 lg:pt-9">
+      Share the product, role or engineering problem you are working on. Expect a direct reply,
+      usually within one business day.
+    </p>
+  </header>
+
+  <div class="mt-16 grid grid-cols-1 border border-text-primary bg-background-card lg:grid-cols-12">
+    <aside class="contact-ledger lg:col-span-5">
+      <div class="contact-ledger__header">
+        <span>Direct channels</span><span class="contact-ledger__status">Available</span>
       </div>
 
-      <div class="flex-1">
-        <h3 class="font-bold text-white font-cairo text-base mb-1">
-          {{ notification.title }}
-        </h3>
-        <p class="text-white/90 font-cairo text-sm leading-relaxed">
-          {{ notification.message }}
+      <a href="mailto:ahmedsalem1041998@gmail.com" class="contact-line">
+        <span>01 / Email</span><strong>ahmedsalem1041998&#64;gmail.com</strong><em>↗</em>
+      </a>
+      <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer" class="contact-line">
+        <span>02 / WhatsApp</span><strong>+20 101 581 9700</strong><em>↗</em>
+      </a>
+      <a href="tel:+201015819700" class="contact-line">
+        <span>03 / Phone</span><strong>+20 101 581 9700</strong><em>↗</em>
+      </a>
+      <div class="contact-line">
+        <span>04 / Base</span><strong>Nasr City, Cairo, Egypt</strong><em>•</em>
+      </div>
+
+      <div class="contact-ledger__profiles">
+        <a href="https://github.com/AhmedSalem104" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c" target="_blank" rel="noopener noreferrer">Wuzzuf ↗</a>
+      </div>
+
+      <button type="button" class="contact-copy" (click)="copyEmail()">Copy email address</button>
+    </aside>
+
+    <div class="contact-form-shell lg:col-span-7">
+      <div class="mb-8 flex items-start justify-between gap-4">
+        <div>
+          <p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary">Message desk</p>
+          <h3 class="mt-2 text-3xl font-bold tracking-tight">Send a brief</h3>
+        </div>
+        <span class="font-tajawal text-[10px] uppercase text-text-muted">* Required</span>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+        <div class="floating-field">
+          <input id="name" name="name" type="text" [(ngModel)]="formData.name" maxlength="60" placeholder=" " autocomplete="name">
+          <label for="name">Your name <span>Optional</span></label>
+        </div>
+
+        <div class="floating-field" [class.floating-field--error]="showEmailError">
+          <input id="email" name="email" type="email" [(ngModel)]="formData.email" maxlength="100" placeholder=" " autocomplete="email"
+                 required (blur)="emailTouched = true" (input)="emailTouched = true" [attr.aria-invalid]="showEmailError">
+          <label for="email">Email address <b>*</b></label>
+          @if (showEmailError) {
+            <p class="field-error">Enter a complete email address, for example name&#64;company.com.</p>
+          }
+        </div>
+
+        <div class="floating-field floating-field--textarea" [class.floating-field--error]="showMessageError">
+          <textarea id="message" name="message" [(ngModel)]="formData.message" rows="7" maxlength="1000" placeholder=" " required
+                    (blur)="messageTouched = true" (input)="messageTouched = true" [attr.aria-invalid]="showMessageError"></textarea>
+          <label for="message">Project or opportunity <b>*</b></label>
+          <span class="field-count" [class.field-count--warning]="messageCharCount > 900">{{ messageCharCount }} / 1000</span>
+          @if (showMessageError) {
+            <p class="field-error">Tell me a little more - at least 5 characters.</p>
+          }
+        </div>
+
+        @if (state === 'error' && errorMessage) {
+          <p class="form-status form-status--error" role="alert">{{ errorMessage }}</p>
+        }
+
+        <button type="submit" class="send-button" [disabled]="!isFormValid || state === 'sending'">
+          @if (state === 'sending') {
+            <span class="send-button__spinner" aria-hidden="true"></span><span>Sending securely...</span>
+          } @else if (state === 'success') {
+            <span aria-hidden="true">✓</span><span>Message sent</span>
+          } @else if (state === 'error') {
+            <span aria-hidden="true">↗</span><span>Opening email backup...</span>
+          } @else {
+            <span>Send message</span><span aria-hidden="true">→</span>
+          }
+        </button>
+
+        <p class="mt-4 font-tajawal text-[10px] leading-5 text-text-muted">
+          Your message is delivered through FormSubmit. This website does not store form data.
         </p>
-      </div>
-
-      <button (click)="closeNotification()"
-              class="flex-shrink-0 text-white/80 hover:text-white transition-colors">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <div class="container mx-auto px-6">
-    <!-- Page Title -->
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-text-primary via-primary-light to-accent bg-clip-text text-transparent font-cairo mb-4">
-        Get In Touch
-      </h1>
-      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-      <p class="text-text-secondary font-cairo mt-4 max-w-xl mx-auto">
-        Have a project in mind or want to discuss an opportunity? I'd love to hear from you.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      <!-- Contact Information -->
-      <div data-aos="fade-right" class="space-y-4">
-        <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-6">
-          Contact Information
-        </h2>
-
-        <!-- Email -->
-        <div class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-primary hover:-translate-y-1 transition-all duration-300 group">
-          <a href="mailto:Ahmedsalem1041998@gmail.com" class="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-            </svg>
-          </a>
-          <div class="flex-1 min-w-0">
-            <h3 class="font-bold text-text-primary font-cairo mb-1">Email</h3>
-            <a href="mailto:Ahmedsalem1041998@gmail.com" class="text-text-secondary font-cairo text-sm group-hover:text-accent transition-colors break-all">
-              Ahmedsalem1041998&#64;gmail.com
-            </a>
-          </div>
-          <button (click)="copyEmail()" aria-label="Copy email"
-                  class="flex-shrink-0 p-2 text-text-muted hover:text-primary hover:bg-background-elevated rounded-lg transition-all"
-                  title="Copy email">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- WhatsApp -->
-        <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer"
-           class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-[#25D366] hover:-translate-y-1 transition-all duration-300 group">
-          <div class="w-12 h-12 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-bold text-text-primary font-cairo mb-1">WhatsApp</h3>
-            <p class="text-text-secondary font-cairo text-sm group-hover:text-[#25D366] transition-colors">
-              +20 101 581 9700
-            </p>
-          </div>
-          <svg class="w-5 h-5 text-text-muted group-hover:text-[#25D366] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-
-        <!-- Phone -->
-        <a href="tel:+201015819700"
-           class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-accent hover:-translate-y-1 transition-all duration-300 group">
-          <div class="w-12 h-12 bg-gradient-to-br from-accent to-success rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-bold text-text-primary font-cairo mb-1">Phone</h3>
-            <p class="text-text-secondary font-cairo text-sm group-hover:text-accent transition-colors">
-              +20 101 581 9700
-            </p>
-          </div>
-          <svg class="w-5 h-5 text-text-muted group-hover:text-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-          </svg>
-        </a>
-
-        <!-- Location -->
-        <div class="flex items-start gap-4 bg-background-card border border-border p-5 rounded-xl shadow-card hover:shadow-glow hover:border-warning hover:-translate-y-1 transition-all duration-300 group">
-          <div class="w-12 h-12 bg-gradient-to-br from-warning to-error rounded-xl flex items-center justify-center flex-shrink-0 shadow-glow group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-          <div class="flex-1">
-            <h3 class="font-bold text-text-primary font-cairo mb-1">Location</h3>
-            <p class="text-text-secondary font-cairo text-sm">10 of Ramadan City, Egypt</p>
-          </div>
-        </div>
-
-        <!-- Social Links -->
-        <div class="bg-background-card border border-border p-5 rounded-xl shadow-card">
-          <h3 class="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo mb-4">
-            Connect With Me
-          </h3>
-          <div class="flex gap-3">
-            <a href="https://github.com/AhmedSalem104" target="_blank" aria-label="GitHub"
-               class="flex items-center justify-center w-11 h-11 bg-background-elevated rounded-xl text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1 border border-border hover:border-primary hover:shadow-glow">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" aria-label="LinkedIn"
-               class="flex items-center justify-center w-11 h-11 bg-background-elevated rounded-xl text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1 border border-border hover:border-primary hover:shadow-glow">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c?utm_medium=other&utm_source=referral" target="_blank" aria-label="Wuzzuf"
-               class="flex items-center justify-center w-11 h-11 bg-background-elevated rounded-xl text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1 border border-border hover:border-primary hover:shadow-glow">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact Form -->
-      <div data-aos="fade-left">
-        <div class="bg-background-card border border-border p-8 rounded-xl shadow-card">
-          <div class="flex items-start justify-between mb-6 flex-wrap gap-2">
-            <div>
-              <h2 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-cairo">
-                Send a Message
-              </h2>
-              <p class="text-text-muted font-cairo text-sm mt-1">I'll get back within 24 hours.</p>
-            </div>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-success/10 border border-success/30 rounded-full text-xs font-cairo font-semibold text-success">
-              <span class="relative flex h-1.5 w-1.5">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-success"></span>
-              </span>
-              Available
-            </span>
-          </div>
-
-          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-5">
-            <!-- Name -->
-            <div>
-              <label for="name" class="block text-text-primary font-cairo font-semibold mb-2 text-sm">
-                Your Name <span class="text-text-muted text-xs font-normal">(optional)</span>
-              </label>
-              <div class="relative group">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted pointer-events-none transition-colors group-focus-within:text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
-                </svg>
-                <input type="text" id="name" name="name" [(ngModel)]="formData.name"
-                       maxlength="60"
-                       class="w-full pl-12 pr-4 py-3 bg-background-elevated border border-border rounded-xl focus:outline-none focus:border-primary focus:shadow-glow transition-all font-cairo text-text-primary placeholder-text-muted"
-                       placeholder="John Doe">
-              </div>
-            </div>
-
-            <!-- Email -->
-            <div>
-              <label for="email" class="block text-text-primary font-cairo font-semibold mb-2 text-sm">
-                Email Address <span class="text-error">*</span>
-              </label>
-              <div class="relative group">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none transition-colors"
-                     [class.text-text-muted]="!formData.email"
-                     [class.text-error]="formData.email && !isEmailValid"
-                     [class.text-success]="isEmailValid"
-                     fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-                <input type="email" id="email" name="email" [(ngModel)]="formData.email" required
-                       maxlength="100"
-                       class="w-full pl-12 pr-12 py-3 bg-background-elevated border rounded-xl focus:outline-none transition-all font-cairo text-text-primary placeholder-text-muted"
-                       [class.border-border]="!formData.email"
-                       [class.border-error]="formData.email && !isEmailValid"
-                       [class.border-success]="isEmailValid"
-                       [class.focus:border-primary]="!formData.email"
-                       [class.focus:shadow-glow]="!formData.email || isEmailValid"
-                       placeholder="you@example.com">
-                <!-- Validation Icon -->
-                <div *ngIf="formData.email" class="absolute right-4 top-1/2 -translate-y-1/2 transition-all">
-                  <svg *ngIf="isEmailValid" class="w-5 h-5 text-success" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                  </svg>
-                  <svg *ngIf="!isEmailValid" class="w-5 h-5 text-error" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
-                  </svg>
-                </div>
-              </div>
-              <p *ngIf="formData.email && !isEmailValid" class="text-error font-cairo text-xs mt-1.5 flex items-center gap-1">
-                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                </svg>
-                Please enter a valid email address.
-              </p>
-            </div>
-
-            <!-- Message -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <label for="message" class="block text-text-primary font-cairo font-semibold text-sm">
-                  Message <span class="text-error">*</span>
-                </label>
-                <span class="text-text-muted font-cairo text-xs"
-                      [class.text-warning]="messageCharCount > 800"
-                      [class.text-error]="messageCharCount > 950">
-                  {{ messageCharCount }} / 1000
-                </span>
-              </div>
-              <textarea id="message" name="message" [(ngModel)]="formData.message" required rows="6"
-                        maxlength="1000"
-                        class="w-full px-4 py-3 bg-background-elevated border border-border rounded-xl focus:outline-none focus:border-primary focus:shadow-glow transition-all font-cairo resize-none text-text-primary placeholder-text-muted"
-                        placeholder="Tell me about your project, opportunity, or just say hi..."></textarea>
-            </div>
-
-            <!-- Status Strip (when error) -->
-            <div *ngIf="state === 'error' && errorMessage"
-                 class="flex items-start gap-2 p-3 bg-error/10 border border-error/30 rounded-lg animate-pulse">
-              <svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-              </svg>
-              <p class="text-error font-cairo text-xs">{{ errorMessage }}</p>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit"
-                    [disabled]="!isFormValid || state === 'sending'"
-                    class="w-full group relative px-6 py-4 text-white font-bold font-cairo rounded-xl transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 overflow-hidden hover:-translate-y-0.5"
-                    [class.bg-gradient-to-r]="state !== 'success' && state !== 'error'"
-                    [class.from-primary]="state !== 'success' && state !== 'error'"
-                    [class.to-secondary]="state !== 'success' && state !== 'error'"
-                    [class.hover:shadow-glow-lg]="state === 'idle'"
-                    [class.bg-success]="state === 'success'"
-                    [class.shadow-glow]="state === 'success'"
-                    [class.bg-error]="state === 'error'">
-              <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-
-              <!-- Idle State -->
-              <ng-container *ngIf="state === 'idle'">
-                <svg class="w-5 h-5 relative group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                </svg>
-                <span class="relative">Send Message</span>
-              </ng-container>
-
-              <!-- Sending State -->
-              <ng-container *ngIf="state === 'sending'">
-                <svg class="animate-spin h-5 w-5 text-white relative" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span class="relative">Sending to Gmail...</span>
-              </ng-container>
-
-              <!-- Success State -->
-              <ng-container *ngIf="state === 'success'">
-                <svg class="w-6 h-6 relative animate-success-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="relative">Message Sent!</span>
-              </ng-container>
-
-              <!-- Error State -->
-              <ng-container *ngIf="state === 'error'">
-                <svg class="w-5 h-5 relative" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="relative">Trying Email Backup...</span>
-              </ng-container>
-            </button>
-
-            <p class="text-text-muted font-cairo text-xs text-center flex items-center justify-center gap-1.5">
-              <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              Your message goes directly to my Gmail. Spam-protected.
-            </p>
-          </form>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>

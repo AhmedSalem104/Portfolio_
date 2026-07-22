@@ -1,117 +1,34 @@
-/* ============================================
-   PROFESSIONAL SKILLS CSS
-   ============================================ */
-
-/* Circular Progress Animation */
-.skill-circle {
-  transition: stroke-dashoffset 2s ease-out, stroke 0.3s ease;
-  filter: drop-shadow(0 0 8px currentColor);
+.skill-index-card {
+  min-height: 15rem;
+  border-right: 1px solid #c8c6bd;
+  border-bottom: 1px solid #c8c6bd;
+  background: rgba(255, 253, 248, 0.72);
+  padding: 1.5rem;
+  transition: background 160ms ease, transform 160ms ease;
 }
 
-.skill-circle:hover {
-  filter: drop-shadow(0 0 12px currentColor);
-}
-
-/* Skill Card Animations */
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 150, 136, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 150, 136, 0.4);
-  }
-}
-
-/* Tool Card Hover Effects */
-.tool-card {
+.skill-index-card:hover {
   position: relative;
-  overflow: hidden;
+  z-index: 1;
+  background: #fffdf8;
+  box-shadow: inset 5px 0 0 #e9673f;
 }
 
-.tool-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-  transform: scale(0);
-  transition: transform 0.5s ease;
-}
-
-.tool-card:hover::before {
-  transform: scale(1);
-}
-
-/* Progress Number Animation */
-@keyframes count-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (min-width: 1024px) {
+  .skill-index-card:nth-child(3n) {
+    border-right: 0;
   }
 }
 
-/* Gradient Text Shimmer */
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .skill-index-card:nth-child(2n) {
+    border-right: 0;
   }
 }
 
-.gradient-shimmer {
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
-}
-
-/* Card Lift on Scroll */
-.card-reveal {
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-reveal.visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* Smooth Icon Rotation */
-.icon-rotate {
-  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.icon-rotate:hover {
-  transform: rotate(360deg) scale(1.2);
-}
-
-/* Floating Animation for Icons */
-@keyframes float-skill {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
+@media (max-width: 767px) {
+  .skill-index-card {
+    min-height: auto;
+    border-right: 0;
   }
 }
-
-.float-animation {
-  animation: float-skill 3s ease-in-out infinite;
-}
-
-/* Stagger Animation Delay */
-.skill-item:nth-child(1) { animation-delay: 0s; }
-.skill-item:nth-child(2) { animation-delay: 0.1s; }
-.skill-item:nth-child(3) { animation-delay: 0.2s; }
-.skill-item:nth-child(4) { animation-delay: 0.3s; }
-.skill-item:nth-child(5) { animation-delay: 0.4s; }
-.skill-item:nth-child(6) { animation-delay: 0.5s; }
-.skill-item:nth-child(7) { animation-delay: 0.6s; }
-.skill-item:nth-child(8) { animation-delay: 0.7s; }
