@@ -28,7 +28,8 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const cvLink = compiled.querySelector<HTMLAnchorElement>('a[download]');
 
-    expect(cvLink?.getAttribute('href')).toBe('assets/cv/Ahmed_Salem_CV.pdf');
+    expect(cvLink?.getAttribute('href')).toBe('assets/cv/Ahmed_Abd_elhamid_CV.pdf');
+    expect(cvLink?.getAttribute('download')).toBe('Ahmed_Abd_elhamid_CV.pdf');
   });
 
   it('should render real experience values before count-up animation starts', () => {

@@ -32,4 +32,4 @@ The form posts JSON to FormSubmit. The destination address must be activated onc
 
 ## CV
 
-The downloadable CV is stored at `public/assets/cv/Ahmed_Salem_CV.pdf`.
+The downloadable CV is stored at `public/assets/cv/Ahmed_Abd_elhamid_CV.pdf`.

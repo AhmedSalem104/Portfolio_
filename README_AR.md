@@ -32,4 +32,4 @@ npm test -- --watch=false --browsers=ChromeHeadless
 
 ## السيرة الذاتية
 
-ملف السيرة القابل للتحميل موجود في `public/assets/cv/Ahmed_Salem_CV.pdf`.
+ملف السيرة القابل للتحميل موجود في `public/assets/cv/Ahmed_Abd_elhamid_CV.pdf`.
