@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
       type="button"
       (click)="scrollToTop()"
       aria-label="Back to top"
-      class="fixed bottom-24 right-5 z-40 grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-border bg-white text-sm font-semibold text-text-primary shadow-card transition hover:-translate-y-1 hover:text-primary sm:bottom-6 md:right-8">
+      class="fixed bottom-6 right-5 z-40 grid h-12 w-12 place-items-center overflow-hidden rounded-2xl border border-border bg-white text-sm font-semibold text-text-primary shadow-card transition hover:-translate-y-1 hover:text-primary md:right-8">
       <span aria-hidden="true">↑</span>
       <span class="absolute bottom-0 left-0 h-1 rounded-full bg-primary" [style.width.%]="progress"></span>
     </button>

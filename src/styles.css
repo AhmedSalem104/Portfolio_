@@ -162,10 +162,6 @@ h1, h2, h3, h4, strong {
   }
 }
 
-@media (max-width: 639px) {
-  footer { padding-bottom: 5.75rem; }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

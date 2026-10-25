@@ -25,15 +25,10 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <a href="mailto:ahmedsalem1041998@gmail.com"
-         class="hidden min-h-11 items-center rounded-xl px-3 text-xs font-semibold text-text-primary transition hover:text-primary xl:inline-flex">
-        Email
-      </a>
-      <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer"
-         class="inline-flex min-h-11 items-center gap-2 rounded-xl bg-primary px-3 text-xs font-semibold text-white shadow-glow transition hover:bg-primary-dark sm:px-4">
-        <span class="h-2 w-2 rounded-full bg-emerald-300" aria-hidden="true"></span>
-        WhatsApp <span class="hidden sm:inline" aria-hidden="true">↗</span>
-      </a>
+      <button type="button" class="hidden rounded-xl bg-primary px-4 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-primary-dark md:block"
+              (click)="scrollToSection('contact')">
+        Let's talk <span aria-hidden="true">↗</span>
+      </button>
       <button type="button" class="grid h-11 w-11 place-items-center rounded-xl border border-border bg-white text-text-primary shadow-soft lg:hidden"
               (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
         <span class="space-y-1.5" aria-hidden="true">
