@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2563eb',
+          DEFAULT: '#2458e8',
           light: '#60a5fa',
           dark: '#1d4ed8',
         },
@@ -27,7 +27,7 @@ module.exports = {
         border: '#e2e8f0',
       },
       fontFamily: {
-        cairo: ['"Segoe UI Variable"', 'Inter', '"Segoe UI"', 'Arial', 'sans-serif'],
+        cairo: ['"DM Sans"', '"Segoe UI"', 'sans-serif'],
         tajawal: ['"Cascadia Code"', '"SFMono-Regular"', 'Consolas', 'monospace'],
       },
       borderRadius: {

@@ -9,6 +9,7 @@ import { ContactComponent } from './pages/contact/contact';
 import { ScrollProgressComponent } from './components/scroll-progress/scroll-progress';
 import { BackToTopComponent } from './components/back-to-top/back-to-top';
 import { FloatingContactComponent } from './components/floating-contact/floating-contact';
+import { RevealDirective } from './directives/reveal.directive';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ import { FloatingContactComponent } from './components/floating-contact/floating
     ScrollProgressComponent,
     BackToTopComponent,
     FloatingContactComponent,
+    RevealDirective,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',

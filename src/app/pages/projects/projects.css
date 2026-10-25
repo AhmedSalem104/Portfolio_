@@ -8,3 +8,16 @@
 .project-details summary::marker {
   color: #2563eb;
 }
+
+.project-details {
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.project-details[open] {
+  border-color: #bfdbfe;
+  background: #f4f8ff;
+}
+
+.project-details summary {
+  min-height: 1.5rem;
+}

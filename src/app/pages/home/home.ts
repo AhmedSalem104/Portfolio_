@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './home.css',
 })
 export class HomeComponent {
-  readonly typedText = 'Senior Full-Stack Developer · .NET · Angular · Azure';
-
   scrollToSection(sectionId: string) {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    document.getElementById(sectionId)?.scrollIntoView({ behavior });
   }
 }

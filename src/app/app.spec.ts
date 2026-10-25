@@ -19,7 +19,10 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Building digital systems');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Software built for what happens');
+    expect(compiled.querySelector('app-home img')).toBeNull();
+    expect(compiled.querySelector('app-floating-contact a[href^="https://wa.me/"]')).toBeTruthy();
+    expect(compiled.querySelector('app-floating-contact a[href^="mailto:"]')).toBeTruthy();
   });
 
   it('should expose the current CV download', () => {

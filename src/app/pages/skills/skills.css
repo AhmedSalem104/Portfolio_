@@ -1,1 +1,13 @@
-/* Skill layouts and states are handled with Tailwind utilities. */
+.skill-fill {
+  transform-origin: left;
+  animation: skill-grow 900ms 180ms ease-out backwards;
+}
+
+@keyframes skill-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-fill { animation: none; }
+}
