@@ -34,6 +34,36 @@ export class ProjectsComponent {
   projects: Project[] = [
     // ========== FLAGSHIP PROJECTS ==========
     {
+      title: 'SNA — Engineering Industries Platform',
+      category: 'flagship',
+      badge: 'Live · Corporate platform',
+      description: 'Built a multilingual corporate platform for SNA Engineering Industries with Next.js, TypeScript, Prisma, and MySQL. Delivered a secure administration dashboard, RESTful APIs, product and content management, Cloudinary media integration, and search-ready content optimized for SEO, AEO, and GEO.',
+      highlights: [
+        'Multilingual website with product and editorial content management',
+        'Secure administration dashboard and RESTful APIs',
+        'Cloudinary integration for managed product and content media',
+        'SEO, AEO, and GEO improvements for discoverability',
+      ],
+      technologies: ['Next.js', 'TypeScript', 'Prisma', 'MySQL', 'Cloudinary', 'REST APIs', 'SEO / AEO / GEO'],
+      demo: 'https://snalattal.me',
+      delay: 0,
+    },
+    {
+      title: 'Adawi — Legal Services Platform',
+      category: 'flagship',
+      badge: 'Live · Arabic-first',
+      description: 'Developed a responsive, Arabic-first legal services platform with Laravel, Filament, Livewire, Blade, and MySQL. Built a CMS and administration dashboard for services, articles, packages, and client requests, with role-based access, multi-factor authentication, and version-controlled publishing with rollback.',
+      highlights: [
+        'Responsive Arabic interface with right-to-left layouts',
+        'CMS for legal services, articles, packages, and client requests',
+        'Role-based access control and multi-factor authentication',
+        'Versioned publishing with rollback and SEO, AEO, and GEO optimization',
+      ],
+      technologies: ['Laravel 13', 'PHP', 'MySQL', 'Filament 5', 'Livewire', 'Blade', 'RBAC', 'MFA'],
+      demo: 'https://adawilaw.com',
+      delay: 100,
+    },
+    {
       title: 'Voltyks API — EV Charging Platform',
       category: 'flagship',
       badge: 'v2.2.0 · Azure',
