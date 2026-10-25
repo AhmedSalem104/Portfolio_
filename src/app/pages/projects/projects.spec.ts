@@ -26,4 +26,16 @@ describe('ProjectsComponent', () => {
     expect(component.filteredProjects.length).toBe(component.projects.length);
     expect(component.filteredProjects.length).toBeGreaterThan(10);
   });
+
+  it('keeps an Arabic title, description and every highlight for each project', () => {
+    const fixture = TestBed.createComponent(ProjectsComponent);
+    const component = fixture.componentInstance;
+
+    for (const project of component.projects) {
+      const arabic = component.arabicProjects[project.title];
+      expect(arabic?.title).withContext(project.title).toBeTruthy();
+      expect(arabic?.description).withContext(project.title).toBeTruthy();
+      expect(arabic?.highlights?.length ?? 0).withContext(project.title).toBe(project.highlights?.length ?? 0);
+    }
+  });
 });

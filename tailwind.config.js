@@ -15,16 +15,16 @@ module.exports = {
         error: '#dc2626',
         warning: '#d97706',
         background: {
-          DEFAULT: '#f7f9fc',
-          card: '#ffffff',
-          elevated: '#eef2ff',
+          DEFAULT: 'var(--page)',
+          card: 'var(--card)',
+          elevated: 'var(--soft)',
         },
         text: {
-          primary: '#0f172a',
-          secondary: '#475569',
-          muted: '#64748b',
+          primary: 'var(--ink)',
+          secondary: 'var(--secondary-ink)',
+          muted: 'var(--muted)',
         },
-        border: '#e2e8f0',
+        border: 'var(--line)',
       },
       fontFamily: {
         cairo: ['"DM Sans"', '"Segoe UI"', 'sans-serif'],

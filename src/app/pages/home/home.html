@@ -1,39 +1,39 @@
 <div class="hero-shell pt-[72px]">
-  <div class="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20 lg:py-24">
     <div class="grid gap-14 lg:grid-cols-12 lg:items-center">
       <div class="lg:col-span-8">
-        <p class="hero-enter hero-eyebrow">Ahmed Abd Elhamid Salem <span aria-hidden="true">/</span> Cairo, Egypt</p>
+        <p class="hero-enter hero-eyebrow">{{ 'Ahmed Abd Elhamid Salem' | tr }} <span aria-hidden="true">/</span> {{ 'Cairo, Egypt' | tr }}</p>
         <h1 class="hero-enter hero-enter--two mt-6 max-w-3xl text-[2.6rem] font-extrabold leading-[1.12] tracking-[-0.055em] text-text-primary sm:text-5xl lg:text-[3.6rem]">
-          Hi, I'm Ahmed Salem.
+          {{ 'Hi, I\'m Ahmed Salem.' | tr }}
         </h1>
-        <p class="hero-enter hero-enter--three mt-4 text-lg font-bold text-primary md:text-xl">Senior Full-Stack Software Engineer</p>
+        <p class="hero-enter hero-enter--three mt-4 text-lg font-bold text-primary md:text-xl">{{ 'Senior Full-Stack Software Engineer' | tr }}</p>
         <p class="hero-enter hero-enter--four mt-6 max-w-2xl text-base leading-8 text-text-secondary md:text-lg">
-          I have 5+ years of experience building enterprise web applications with .NET and Angular. I work across backend architecture, APIs, responsive frontends, real-time features and cloud deployment.
+          {{ 'I have 5+ years of experience building enterprise web applications with .NET and Angular. I work across backend architecture, APIs, responsive frontends, real-time features and cloud deployment.' | tr }}
         </p>
 
         <div class="hero-enter hero-enter--five mt-9 flex flex-col gap-3 sm:flex-row">
           <button type="button" class="primary-button" (click)="scrollToSection('projects')">
-            View my projects <span aria-hidden="true">↗</span>
+            {{ 'View my projects' | tr }} <span aria-hidden="true">↗</span>
           </button>
           <a class="secondary-button" href="assets/cv/Ahmed_Abd_elhamid_CV.pdf" download="Ahmed_Abd_elhamid_CV.pdf">
-            Download CV <span aria-hidden="true">↓</span>
+            {{ 'Download CV' | tr }} <span aria-hidden="true">↓</span>
           </a>
         </div>
 
         <div class="hero-enter hero-enter--six mt-8 flex flex-wrap items-center gap-x-5 gap-y-2">
-          <span class="text-xs font-semibold text-text-muted">Get in touch</span>
-          <a class="hero-link" href="mailto:ahmedsalem1041998@gmail.com">Email <span aria-hidden="true">↗</span></a>
+          <span class="text-xs font-semibold text-text-muted">{{ 'Get in touch' | tr }}</span>
+          <a class="hero-link" href="mailto:ahmedsalem1041998@gmail.com">{{ 'Email' | tr }} <span aria-hidden="true">↗</span></a>
           <a class="hero-link" href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
           <a class="hero-link" href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
-      <aside class="hero-enter hero-enter--four hero-summary lg:col-span-4" aria-label="Professional focus">
-        <p class="hero-summary__heading">What I work on</p>
+      <aside class="hero-enter hero-enter--four hero-summary lg:col-span-4" [attr.aria-label]="'Professional focus' | tr">
+        <p class="hero-summary__heading">{{ 'What I work on' | tr }}</p>
         <dl>
-          <div><dt>Backend</dt><dd>ASP.NET Core APIs, SQL Server and clean architecture</dd></div>
-          <div><dt>Frontend</dt><dd>Angular applications and operational dashboards</dd></div>
-          <div><dt>Delivery</dt><dd>SignalR, Azure and production deployments</dd></div>
+          <div><dt>{{ 'Backend' | tr }}</dt><dd>{{ 'ASP.NET Core APIs, SQL Server and clean architecture' | tr }}</dd></div>
+          <div><dt>{{ 'Frontend' | tr }}</dt><dd>{{ 'Angular applications and operational dashboards' | tr }}</dd></div>
+          <div><dt>{{ 'Delivery' | tr }}</dt><dd>{{ 'SignalR, Azure and production deployments' | tr }}</dd></div>
         </dl>
       </aside>
     </div>

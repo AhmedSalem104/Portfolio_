@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../site-preferences';
 
 interface Skill {
   name: string;
@@ -29,7 +30,7 @@ interface TechCategory {
 
 @Component({
   selector: 'app-skills',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })

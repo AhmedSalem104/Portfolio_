@@ -1,19 +1,18 @@
-<div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+<div class="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
   @if (notification.show) {
     <div class="contact-toast" [class.contact-toast--error]="notification.type === 'error'" role="status" aria-live="polite">
       <div><strong>{{ notification.title }}</strong><p>{{ notification.message }}</p></div>
-      <button type="button" (click)="closeNotification()" aria-label="Close notification">×</button>
+      <button type="button" (click)="closeNotification()" [attr.aria-label]="'Close notification' | tr">×</button>
     </div>
   }
 
   <header class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">
-      <p class="section-kicker">Start a conversation</p>
-      <h2 class="section-heading">Have something ambitious in mind?</h2>
+      <p class="section-kicker">{{ 'Start a conversation' | tr }}</p>
+      <h2 class="section-heading">{{ 'Have something ambitious in mind?' | tr }}</h2>
     </div>
     <p class="section-intro lg:col-span-5">
-      Share the product, role or engineering problem you are working on. Expect a direct reply,
-      usually within one business day.
+      {{ 'Share the product, role or engineering problem you are working on. Expect a direct reply, usually within one business day.' | tr }}
     </p>
   </header>
 
@@ -21,19 +20,19 @@
     <aside class="relative overflow-hidden bg-gradient-dark p-7 text-white sm:p-9 lg:col-span-5 lg:p-10">
       <div class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl"></div>
       <div class="relative">
-        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Available for selected opportunities</div>
-        <h3 class="mt-6 text-3xl font-bold tracking-tight">Let’s build something that works beautifully.</h3>
-        <p class="mt-4 text-sm leading-7 text-slate-300">Choose the channel that suits you, or send the short brief and I’ll reply by email.</p>
+        <div class="flex items-center gap-2 text-xs font-semibold text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> {{ 'Available for selected opportunities' | tr }}</div>
+        <h3 class="mt-6 text-3xl font-bold tracking-tight">{{ 'Let’s build something that works beautifully.' | tr }}</h3>
+        <p class="mt-4 text-sm leading-7 text-slate-300">{{ 'Choose the channel that suits you, or send the short brief and I’ll reply by email.' | tr }}</p>
 
         <div class="mt-9 space-y-3">
           <a href="mailto:ahmedsalem1041998@gmail.com" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
-            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">Email</small><strong class="mt-1 block break-all text-sm">ahmedsalem1041998&#64;gmail.com</strong></span><span aria-hidden="true">↗</span>
+            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">{{ 'Email' | tr }}</small><strong class="mt-1 block break-all text-sm">ahmedsalem1041998&#64;gmail.com</strong></span><span aria-hidden="true">↗</span>
           </a>
           <a href="https://wa.me/201015819700" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
             <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">WhatsApp</small><strong class="mt-1 block text-sm">+20 101 581 9700</strong></span><span aria-hidden="true">↗</span>
           </a>
           <a href="tel:+201015819700" class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/10">
-            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">Phone</small><strong class="mt-1 block text-sm">+20 101 581 9700</strong></span><span aria-hidden="true">↗</span>
+            <span><small class="block text-[10px] uppercase tracking-wider text-slate-400">{{ 'Phone' | tr }}</small><strong class="mt-1 block text-sm">+20 101 581 9700</strong></span><span aria-hidden="true">↗</span>
           </a>
         </div>
 
@@ -42,47 +41,47 @@
           <a class="profile-link profile-link--dark" href="https://www.linkedin.com/in/ahmed-salem-86b789236/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
           <a class="profile-link profile-link--dark" href="https://wuzzuf.net/me/Ahmed-Salem-6ddd248f3c" target="_blank" rel="noopener noreferrer">Wuzzuf <span aria-hidden="true">↗</span></a>
         </div>
-        <button type="button" class="mt-8 rounded-xl border border-white/15 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10" (click)="copyEmail()">Copy email address</button>
+        <button type="button" class="mt-8 rounded-xl border border-white/15 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10" (click)="copyEmail()">{{ 'Copy email address' | tr }}</button>
       </div>
     </aside>
 
     <div class="p-7 sm:p-9 lg:col-span-7 lg:p-12">
       <div class="mb-8 flex items-start justify-between gap-4">
-        <div><p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">Message desk</p><h3 class="mt-2 text-3xl font-bold tracking-tight">Send a brief</h3></div>
-        <span class="text-[10px] uppercase tracking-wider text-text-muted">* Required</span>
+        <div><p class="font-tajawal text-[10px] font-semibold uppercase tracking-[0.15em] text-primary">{{ 'Message desk' | tr }}</p><h3 class="mt-2 text-3xl font-bold tracking-tight">{{ 'Send a brief' | tr }}</h3></div>
+        <span class="text-[10px] uppercase tracking-wider text-text-muted">{{ '* Required' | tr }}</span>
       </div>
 
       <form (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
         <div class="floating-field">
           <input id="name" name="name" type="text" [(ngModel)]="formData.name" maxlength="60" placeholder=" " autocomplete="name">
-          <label for="name">Your name <span>Optional</span></label>
+          <label for="name">{{ 'Your name' | tr }} <span>{{ 'Optional' | tr }}</span></label>
         </div>
 
         <div class="floating-field" [class.floating-field--error]="showEmailError">
           <input id="email" name="email" type="email" [(ngModel)]="formData.email" maxlength="100" placeholder=" " autocomplete="email"
                  required (blur)="emailTouched = true" (input)="emailTouched = true" [attr.aria-invalid]="showEmailError">
-          <label for="email">Email address <b>*</b></label>
-          @if (showEmailError) { <p class="field-error">Enter a complete email address, for example name&#64;company.com.</p> }
+          <label for="email">{{ 'Email address' | tr }} <b>*</b></label>
+          @if (showEmailError) { <p class="field-error">{{ 'Enter a complete email address, for example name@company.com.' | tr }}</p> }
         </div>
 
         <div class="floating-field floating-field--textarea" [class.floating-field--error]="showMessageError">
           <textarea id="message" name="message" [(ngModel)]="formData.message" rows="7" maxlength="1000" placeholder=" " required
                     (blur)="messageTouched = true" (input)="messageTouched = true" [attr.aria-invalid]="showMessageError"></textarea>
-          <label for="message">Project or opportunity <b>*</b></label>
+          <label for="message">{{ 'Project or opportunity' | tr }} <b>*</b></label>
           <span class="field-count" [class.field-count--warning]="messageCharCount > 900">{{ messageCharCount }} / 1000</span>
-          @if (showMessageError) { <p class="field-error">Tell me a little more—at least 5 characters.</p> }
+          @if (showMessageError) { <p class="field-error">{{ 'Tell me a little more—at least 5 characters.' | tr }}</p> }
         </div>
 
         @if (state === 'error' && errorMessage) { <p class="form-status" role="alert">{{ errorMessage }}</p> }
 
         <button type="submit" class="send-button" [disabled]="!isFormValid || state === 'sending'">
-          @if (state === 'sending') { <span class="send-button__spinner" aria-hidden="true"></span><span>Sending securely...</span> }
-          @else if (state === 'success') { <span aria-hidden="true">✓</span><span>Message sent</span> }
-          @else if (state === 'error') { <span aria-hidden="true">↗</span><span>Opening email backup...</span> }
-          @else { <span>Send message</span><span aria-hidden="true">→</span> }
+          @if (state === 'sending') { <span class="send-button__spinner" aria-hidden="true"></span><span>{{ 'Sending securely...' | tr }}</span> }
+          @else if (state === 'success') { <span aria-hidden="true">✓</span><span>{{ 'Message sent' | tr }}</span> }
+          @else if (state === 'error') { <span aria-hidden="true">↗</span><span>{{ 'Opening email backup...' | tr }}</span> }
+          @else { <span>{{ 'Send message' | tr }}</span><span aria-hidden="true">→</span> }
         </button>
 
-        <p class="mt-4 text-[10px] leading-5 text-text-muted">Your message is delivered through FormSubmit. This website does not store form data.</p>
+        <p class="mt-4 text-[10px] leading-5 text-text-muted">{{ 'Your message is delivered through FormSubmit. This website does not store form data.' | tr }}</p>
       </form>
     </div>
   </div>

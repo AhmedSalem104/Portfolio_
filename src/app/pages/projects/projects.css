@@ -18,6 +18,8 @@
   background: #f4f8ff;
 }
 
+:host-context([data-theme="dark"]) .project-details[open] { border-color: #6485ba; background: #203149; }
+
 .project-details summary {
   min-height: 1.5rem;
 }

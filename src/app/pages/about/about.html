@@ -1,13 +1,12 @@
-<div class="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+<div class="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
   <header class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
     <div class="lg:col-span-7">
-      <p class="section-kicker">About my work</p>
-      <h2 class="section-heading">Engineering the full product lifecycle.</h2>
+      <p class="section-kicker">{{ 'About my work' | tr }}</p>
+      <h2 class="section-heading">{{ 'Engineering the full product lifecycle.' | tr }}</h2>
     </div>
     <div class="lg:col-span-5">
       <p class="section-intro">
-        Five-plus years turning complicated requirements into maintainable software—from the
-        first architecture decision to production monitoring.
+        {{ 'Five-plus years turning complicated requirements into maintainable software—from the first architecture decision to production monitoring.' | tr }}
       </p>
     </div>
   </header>
@@ -15,29 +14,28 @@
   <div class="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
     <div class="surface-card p-5 md:p-7">
       <span [appCountUp]="5" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-5xl">5+</span>
-      <span class="mt-2 block text-xs font-medium text-text-muted">Years of experience</span>
+      <span class="mt-2 block text-xs font-medium text-text-muted">{{ 'Years of experience' | tr }}</span>
     </div>
     <div class="surface-card p-5 md:p-7">
       <span [appCountUp]="15" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-5xl">15+</span>
-      <span class="mt-2 block text-xs font-medium text-text-muted">Production projects</span>
+      <span class="mt-2 block text-xs font-medium text-text-muted">{{ 'Production projects' | tr }}</span>
     </div>
     <div class="surface-card p-5 md:p-7">
       <span [appCountUp]="579" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-5xl">579+</span>
-      <span class="mt-2 block text-xs font-medium text-text-muted">REST API endpoints</span>
+      <span class="mt-2 block text-xs font-medium text-text-muted">{{ 'REST API endpoints' | tr }}</span>
     </div>
     <div class="surface-card p-5 md:p-7">
       <span [appCountUp]="20" suffix="+" class="stat-value block text-4xl font-bold tracking-tight text-primary md:text-5xl">20+</span>
-      <span class="mt-2 block text-xs font-medium text-text-muted">GitHub repositories</span>
+      <span class="mt-2 block text-xs font-medium text-text-muted">{{ 'GitHub repositories' | tr }}</span>
     </div>
   </div>
 
   <div class="mt-24 grid grid-cols-1 gap-10 lg:grid-cols-12">
     <div class="lg:col-span-4">
-      <p class="font-tajawal text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">Experience</p>
-      <h3 class="mt-3 text-3xl font-bold tracking-tight text-text-primary">Where product thinking meets backend depth.</h3>
+      <p class="font-tajawal text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">{{ 'Experience' | tr }}</p>
+      <h3 class="mt-3 text-3xl font-bold tracking-tight text-text-primary">{{ 'Where product thinking meets backend depth.' | tr }}</h3>
       <p class="mt-4 max-w-md text-sm leading-7 text-text-secondary">
-        My strongest work sits in real-time systems, payment flows, secure authentication,
-        high-volume APIs and the operational interfaces teams rely on every day.
+        {{ 'My strongest work sits in real-time systems, payment flows, secure authentication, high-volume APIs and the operational interfaces teams rely on every day.' | tr }}
       </p>
     </div>
 
@@ -47,27 +45,27 @@
       <article class="surface-card relative p-6 transition duration-200 hover:-translate-y-1 hover:shadow-card md:p-8">
         <span class="absolute -left-[2.2rem] top-9 hidden h-4 w-4 rounded-full border-4 border-background bg-primary lg:block"></span>
         <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div><p class="text-xs font-semibold text-primary">2025 — PRESENT</p><h4 class="mt-2 text-2xl font-bold tracking-tight">Senior Full-Stack Developer</h4><p class="mt-1 text-sm text-text-muted">BDC · Cairo</p></div>
-          <span class="w-fit rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">Current role</span>
+          <div><p class="text-xs font-semibold text-primary">{{ '2025 — PRESENT' | tr }}</p><h4 class="mt-2 text-2xl font-bold tracking-tight">{{ 'Senior Full-Stack Developer' | tr }}</h4><p class="mt-1 text-sm text-text-muted">BDC · Cairo</p></div>
+          <span class="w-fit rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-700">{{ 'Current role' | tr }}</span>
         </div>
-        <p class="mt-5 leading-7 text-text-secondary">Leading delivery of enterprise platforms with .NET 8, Angular and Azure. Architecting six-layer systems, hybrid CQRS, SignalR/Redis real-time services, secure payment flows and production deployment pipelines.</p>
-        <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">Architecture</span><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">Mentoring</span><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">Azure</span></div>
+        <p class="mt-5 leading-7 text-text-secondary">{{ 'Leading delivery of enterprise platforms with .NET 8, Angular and Azure. Architecting six-layer systems, hybrid CQRS, SignalR/Redis real-time services, secure payment flows and production deployment pipelines.' | tr }}</p>
+        <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">{{ 'Architecture' | tr }}</span><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">{{ 'Mentoring' | tr }}</span><span class="rounded-full bg-blue-50 px-3 py-1.5 text-xs font-medium text-primary">Azure</span></div>
       </article>
 
       <article class="surface-card relative p-6 transition duration-200 hover:-translate-y-1 hover:shadow-card md:p-8">
         <span class="absolute -left-[2.2rem] top-9 hidden h-4 w-4 rounded-full border-4 border-background bg-slate-300 lg:block"></span>
         <p class="text-xs font-semibold text-primary">2021 — 2025</p>
-        <h4 class="mt-2 text-2xl font-bold tracking-tight">Frontend &amp; Backend Developer</h4>
+        <h4 class="mt-2 text-2xl font-bold tracking-tight">{{ 'Frontend & Backend Developer' | tr }}</h4>
         <p class="mt-1 text-sm text-text-muted">Solution Software</p>
-        <p class="mt-5 leading-7 text-text-secondary">Delivered municipality platforms for warehouse management, equipment maintenance and real-estate investment. Built REST APIs, complex operational interfaces, Crystal Reports and fine-grained RBAC.</p>
+        <p class="mt-5 leading-7 text-text-secondary">{{ 'Delivered municipality platforms for warehouse management, equipment maintenance and real-estate investment. Built REST APIs, complex operational interfaces, Crystal Reports and fine-grained RBAC.' | tr }}</p>
       </article>
 
       <article class="surface-card relative p-6 transition duration-200 hover:-translate-y-1 hover:shadow-card md:p-8">
         <span class="absolute -left-[2.2rem] top-9 hidden h-4 w-4 rounded-full border-4 border-background bg-slate-300 lg:block"></span>
         <p class="text-xs font-semibold text-primary">2020 — 2021</p>
-        <h4 class="mt-2 text-2xl font-bold tracking-tight">Freelance Full-Stack Developer</h4>
-        <p class="mt-1 text-sm text-text-muted">Independent</p>
-        <p class="mt-5 leading-7 text-text-secondary">Built end-to-end platforms for e-commerce, medicine donation and food delivery, owning responsive UI, API integration, SQL Server and deployment.</p>
+        <h4 class="mt-2 text-2xl font-bold tracking-tight">{{ 'Freelance Full-Stack Developer' | tr }}</h4>
+        <p class="mt-1 text-sm text-text-muted">{{ 'Independent' | tr }}</p>
+        <p class="mt-5 leading-7 text-text-secondary">{{ 'Built end-to-end platforms for e-commerce, medicine donation and food delivery, owning responsive UI, API integration, SQL Server and deployment.' | tr }}</p>
       </article>
     </div>
   </div>
@@ -83,36 +81,35 @@
               <path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v3M8 21h8"/>
             </svg>
           </span>
-          <p class="mt-8 font-tajawal text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-200">Speaking engagement</p>
-          <p class="mt-3 text-xl font-bold leading-7">Career Bridge Workshop</p>
+          <p class="mt-8 font-tajawal text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-200">{{ 'Speaking engagement' | tr }}</p>
+          <p class="mt-3 text-xl font-bold leading-7">{{ 'Career Bridge Workshop' | tr }}</p>
           <div class="mt-7 border-t border-white/20 pt-5 text-sm leading-7 text-blue-100">
-            <p class="font-semibold text-white">Arab Open University</p>
-            <p>Faculty of Computer Studies</p>
-            <p>May 2026 · Egypt</p>
+            <p class="font-semibold text-white">{{ 'Arab Open University' | tr }}</p>
+            <p>{{ 'Faculty of Computer Studies' | tr }}</p>
+            <p>{{ 'May 2026 · Egypt' | tr }}</p>
           </div>
         </div>
       </aside>
 
       <div class="p-7 sm:p-9 lg:col-span-8 lg:p-10">
         <div class="flex flex-wrap items-center gap-3">
-          <span class="rounded-lg bg-blue-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary">Guest speaker</span>
-          <span class="text-xs font-medium text-text-muted">Industry insights &amp; career guidance</span>
+          <span class="rounded-lg bg-blue-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-primary">{{ 'Guest speaker' | tr }}</span>
+          <span class="text-xs font-medium text-text-muted">{{ 'Industry insights & career guidance' | tr }}</span>
         </div>
         <h3 class="mt-6 max-w-3xl text-3xl font-bold leading-tight tracking-[-0.035em] text-text-primary sm:text-4xl">
-          The evolving role of developers in the AI era.
+          {{ 'The evolving role of developers in the AI era.' | tr }}
         </h3>
         <p class="mt-5 max-w-3xl text-base leading-8 text-text-secondary">
-          Invited to share real-world experience with computer science students—connecting
-          modern AI-assisted workflows with the engineering fundamentals that make software reliable.
+          {{ 'Invited to share real-world experience with computer science students—connecting modern AI-assisted workflows with the engineering fundamentals that make software reliable.' | tr }}
         </p>
         <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div class="rounded-lg border border-border bg-slate-50 p-4">
-            <p class="font-tajawal text-[9px] font-semibold uppercase tracking-[0.14em] text-primary">Core message</p>
-            <p class="mt-2 text-sm font-semibold leading-6 text-text-primary">Use AI to amplify judgment—not replace it.</p>
+            <p class="font-tajawal text-[9px] font-semibold uppercase tracking-[0.14em] text-primary">{{ 'Core message' | tr }}</p>
+            <p class="mt-2 text-sm font-semibold leading-6 text-text-primary">{{ 'Use AI to amplify judgment—not replace it.' | tr }}</p>
           </div>
           <div class="rounded-lg border border-border bg-slate-50 p-4">
-            <p class="font-tajawal text-[9px] font-semibold uppercase tracking-[0.14em] text-primary">Audience value</p>
-            <p class="mt-2 text-sm font-semibold leading-6 text-text-primary">Practical direction for building an industry-ready career.</p>
+            <p class="font-tajawal text-[9px] font-semibold uppercase tracking-[0.14em] text-primary">{{ 'Audience value' | tr }}</p>
+            <p class="mt-2 text-sm font-semibold leading-6 text-text-primary">{{ 'Practical direction for building an industry-ready career.' | tr }}</p>
           </div>
         </div>
       </div>
@@ -122,21 +119,21 @@
   <div class="mt-20 grid grid-cols-1 gap-5 md:grid-cols-3">
     <article class="surface-card group p-7 transition hover:-translate-y-1 hover:shadow-card">
       <span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-50 text-lg font-bold text-primary">01</span>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">Education</p>
-      <h3 class="mt-2 text-xl font-bold">B.Sc. Computer Science</h3>
-      <p class="mt-3 text-sm leading-6 text-text-secondary">Higher Technological Institute, Egypt<br>Graduated September 2021<br>Graduation project: Excellent</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">{{ 'Education' | tr }}</p>
+      <h3 class="mt-2 text-xl font-bold">{{ 'B.Sc. Computer Science' | tr }}</h3>
+      <p class="mt-3 text-sm leading-6 text-text-secondary">{{ 'Higher Technological Institute, Egypt' | tr }}<br>{{ 'Graduated September 2021' | tr }}<br>{{ 'Graduation project: Excellent' | tr }}</p>
     </article>
     <article class="surface-card group p-7 transition hover:-translate-y-1 hover:shadow-card">
       <span class="grid h-11 w-11 place-items-center rounded-xl bg-violet-50 text-lg font-bold text-violet-600">02</span>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">Professional training</p>
-      <h3 class="mt-2 text-xl font-bold">Full-Stack Diplomas</h3>
-      <p class="mt-3 text-sm leading-6 text-text-secondary">Frontend and Backend diplomas from Route Academy, plus Full-Stack training at the Russian Cultural Center.</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">{{ 'Professional training' | tr }}</p>
+      <h3 class="mt-2 text-xl font-bold">{{ 'Full-Stack Diplomas' | tr }}</h3>
+      <p class="mt-3 text-sm leading-6 text-text-secondary">{{ 'Frontend and Backend diplomas from Route Academy, plus Full-Stack training at the Russian Cultural Center.' | tr }}</p>
     </article>
     <article class="surface-card group p-7 transition hover:-translate-y-1 hover:shadow-card">
       <span class="grid h-11 w-11 place-items-center rounded-xl bg-teal-50 text-lg font-bold text-accent">03</span>
-      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">Languages</p>
-      <h3 class="mt-2 text-xl font-bold">Arabic / English</h3>
-      <p class="mt-3 text-sm leading-6 text-text-secondary">Arabic: native<br>English: professional working proficiency</p>
+      <p class="mt-6 text-xs font-semibold uppercase tracking-wider text-text-muted">{{ 'Languages' | tr }}</p>
+      <h3 class="mt-2 text-xl font-bold">{{ 'Arabic / English' | tr }}</h3>
+      <p class="mt-3 text-sm leading-6 text-text-secondary">{{ 'Arabic: native' | tr }}<br>{{ 'English: professional working proficiency' | tr }}</p>
     </article>
   </div>
 </div>

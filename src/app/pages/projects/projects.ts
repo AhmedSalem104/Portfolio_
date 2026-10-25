@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SitePreferences, TranslatePipe } from '../../site-preferences';
+import { inject } from '@angular/core';
+import { ARABIC_PROJECTS } from '../../arabic-projects';
 
 interface Project {
   title: string;
@@ -16,11 +19,13 @@ interface Project {
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })
 export class ProjectsComponent {
+  readonly preferences = inject(SitePreferences);
+  readonly arabicProjects = ARABIC_PROJECTS;
   activeFilter: 'all' | 'flagship' | 'production' | 'fullstack' | 'foundational' = 'flagship';
 
   filters = [
@@ -307,7 +312,7 @@ export class ProjectsComponent {
       fullstack: 'Full-Stack',
       foundational: 'Foundational',
     };
-    return labels[category] ?? category;
+    return this.preferences.translate(labels[category] ?? category);
   }
 
   getCategoryColor(category: string): string {

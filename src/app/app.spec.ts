@@ -59,4 +59,24 @@ describe('App', () => {
       'Arab Open University'
     );
   });
+
+  it('switches the visible hero to Arabic and enables the dark theme', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const root = fixture.nativeElement as HTMLElement;
+
+    root.querySelector<HTMLButtonElement>('button[lang="ar"]')?.click();
+    fixture.detectChanges();
+    expect(root.querySelector('h1')?.textContent).toContain('أحمد سالم');
+    expect(document.documentElement.dir).toBe('rtl');
+
+    root.querySelector<HTMLButtonElement>('.preference-button--theme')?.click();
+    fixture.detectChanges();
+    expect(document.documentElement.dataset['theme']).toBe('dark');
+
+    root.querySelector<HTMLButtonElement>('button[lang="en"]')?.click();
+    root.querySelector<HTMLButtonElement>('.preference-button--theme')?.click();
+    localStorage.removeItem('portfolio-language');
+    localStorage.removeItem('portfolio-theme');
+  });
 });

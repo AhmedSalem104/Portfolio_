@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SitePreferences, TranslatePipe } from '../../site-preferences';
+import { inject } from '@angular/core';
 
 type FormState = 'idle' | 'sending' | 'success' | 'error';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, TranslatePipe],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
 export class ContactComponent {
+  readonly preferences = inject(SitePreferences);
   formData = {
     name: '',
     email: '',
@@ -120,9 +123,9 @@ export class ContactComponent {
     } catch (error) {
       console.error('Form send error:', error);
       this.state = 'error';
-      this.errorMessage = navigator.onLine
+      this.errorMessage = this.preferences.translate(navigator.onLine
         ? 'Could not send right now. Opening your email client as a backup...'
-        : 'You appear to be offline. Opening your email client as a backup...';
+        : 'You appear to be offline. Opening your email client as a backup...');
 
       setTimeout(() => this.openMailFallback(), 1500);
       setTimeout(() => {
@@ -146,7 +149,7 @@ export class ContactComponent {
       this.showNotification(
         'error',
         'Copy unavailable',
-        `Please copy ${this.recipient} manually.`
+        this.preferences.language() === 'ar' ? `انسخ ${this.recipient} يدويًا.` : `Please copy ${this.recipient} manually.`
       );
       return;
     }
@@ -157,7 +160,7 @@ export class ContactComponent {
         this.showNotification(
           'success',
           'Email Copied',
-          `${this.recipient} copied to your clipboard.`
+          this.preferences.language() === 'ar' ? `تم نسخ ${this.recipient} إلى الحافظة.` : `${this.recipient} copied to your clipboard.`
         )
       )
       .catch(() =>
@@ -170,7 +173,7 @@ export class ContactComponent {
   }
 
   showNotification(type: 'success' | 'error', title: string, message: string) {
-    this.notification = { show: true, type, title, message };
+    this.notification = { show: true, type, title: this.preferences.translate(title), message: this.preferences.translate(message) };
     setTimeout(() => (this.notification.show = false), 6000);
   }
 

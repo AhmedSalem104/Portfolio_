@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../site-preferences';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

@@ -1,1 +1,6 @@
-/* The header is composed with Tailwind utilities; this file is kept for component encapsulation. */
+.preference-button { display:grid; place-items:center; flex:none; height:2.5rem; min-width:2.5rem; border-radius:.55rem; color:var(--muted); font-size:.7rem; font-weight:800; transition:background .18s,color .18s,transform .18s; }
+.preference-button:hover { color:var(--ink); background:var(--soft); }
+.preference-button--active { color:var(--ink); background:var(--soft); }
+.preference-button--theme { height:3rem; min-width:3rem; border:1px solid var(--line); background:var(--card); color:var(--ink); }
+.preference-button--theme svg { width:1.15rem; height:1.15rem; }
+@media (max-width:359px) { .preference-button--language { min-width:2.2rem; } }

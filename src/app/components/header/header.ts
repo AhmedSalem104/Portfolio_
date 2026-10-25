@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SitePreferences, TranslatePipe } from '../../site-preferences';
+import { inject } from '@angular/core';
 
 interface NavItem {
   id: string;
@@ -8,11 +10,12 @@ interface NavItem {
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
+  readonly preferences = inject(SitePreferences);
   isMenuOpen = false;
   activeSection = 'home';
   @Input() isScrolled = false;

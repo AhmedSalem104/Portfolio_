@@ -1,4 +1,4 @@
-<a class="skip-link" href="#main-content">Skip to content</a>
+<a class="skip-link" href="#main-content">{{ 'Skip to content' | tr }}</a>
 <app-scroll-progress [progress]="scrollProgress"></app-scroll-progress>
 <app-header [isScrolled]="isScrolled"></app-header>
 
@@ -11,7 +11,7 @@
     @defer (on viewport) {
       <app-about></app-about>
     } @placeholder {
-      <div class="min-h-[70vh]" aria-hidden="true"></div>
+      <div class="min-h-[18rem]" aria-hidden="true"></div>
     }
   </section>
 
@@ -19,7 +19,7 @@
     @defer (on viewport) {
       <app-skills></app-skills>
     } @placeholder {
-      <div class="min-h-[70vh]" aria-hidden="true"></div>
+      <div class="min-h-[18rem]" aria-hidden="true"></div>
     }
   </section>
 
@@ -27,7 +27,7 @@
     @defer (on viewport) {
       <app-projects></app-projects>
     } @placeholder {
-      <div class="min-h-[70vh]" aria-hidden="true"></div>
+      <div class="min-h-[18rem]" aria-hidden="true"></div>
     }
   </section>
 
@@ -35,7 +35,7 @@
     @defer (on viewport) {
       <app-contact></app-contact>
     } @placeholder {
-      <div class="min-h-[70vh]" aria-hidden="true"></div>
+      <div class="min-h-[18rem]" aria-hidden="true"></div>
     }
   </section>
 </main>

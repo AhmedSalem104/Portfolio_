@@ -1,7 +1,7 @@
 .contact-toast {
   position: fixed;
   top: 6rem;
-  right: 1.25rem;
+  inset-inline-end: 1.25rem;
   z-index: 70;
   display: flex;
   width: min(27rem, calc(100vw - 2.5rem));
@@ -38,14 +38,14 @@
 .floating-field label {
   position: absolute;
   top: 1.7rem;
-  left: 1rem;
+  inset-inline-start: 1rem;
   padding-inline: 0.2rem;
   background: #f8fafc;
   color: #64748b;
   pointer-events: none;
   transition: transform 140ms ease, color 140ms ease, top 140ms ease, font-size 140ms ease;
 }
-.floating-field label span { margin-left: 0.3rem; font-size: 0.6rem; text-transform: uppercase; }
+.floating-field label span { margin-inline-start: 0.3rem; font-size: 0.6rem; text-transform: uppercase; }
 .floating-field label b { color: #dc2626; }
 .floating-field input:focus,
 .floating-field textarea:focus { border-color: #2563eb; background: #fff; outline: 0; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
@@ -60,7 +60,7 @@
 .floating-field--error input,
 .floating-field--error textarea { border-color: #ef4444; background: #fff7f7; }
 .field-error { margin-top: 0.45rem; color: #b91c1c; font-size: 0.75rem; }
-.field-count { position: absolute; right: 0.8rem; bottom: 0.65rem; color: #64748b; font-size: 0.65rem; }
+.field-count { position: absolute; inset-inline-end: 0.8rem; bottom: 0.65rem; color: var(--muted); font-size: 0.65rem; }
 .field-count--warning { color: #b45309; font-weight: 700; }
 .send-button {
   display: flex;
@@ -84,3 +84,19 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes toast-in { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+
+:host-context([data-theme="dark"]) .floating-field input,
+:host-context([data-theme="dark"]) .floating-field textarea { border-color: var(--line); background: var(--soft); color: var(--ink); }
+:host-context([data-theme="dark"]) .floating-field label { background: var(--soft); color: var(--muted); }
+:host-context([data-theme="dark"]) .floating-field input:focus,
+:host-context([data-theme="dark"]) .floating-field textarea:focus { background: var(--card); border-color: #8fb6ff; }
+:host-context([data-theme="dark"]) .floating-field input:focus + label,
+:host-context([data-theme="dark"]) .floating-field input:not(:placeholder-shown) + label,
+:host-context([data-theme="dark"]) .floating-field textarea:focus + label,
+:host-context([data-theme="dark"]) .floating-field textarea:not(:placeholder-shown) + label { background: var(--card); color: #a5c4ff; }
+:host-context([data-theme="dark"]) .contact-toast { background: #123e3b; border-color: #438c75; color: #f1f5fd; }
+:host-context([data-theme="dark"]) .contact-toast--error { background: #4a242c; border-color: #ad606c; }
+:host-context([data-theme="dark"]) .contact-toast p { color: #d5e1f2; }
+:host-context([data-theme="dark"]) .form-status { background: #4a242c; color: #ffd8df; }
+:host-context([data-theme="dark"]) .field-error { color: #ffb4be; }
+:host-context([data-theme="dark"]) .send-button:disabled { opacity: .65; }

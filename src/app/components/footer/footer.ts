@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '../../site-preferences';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

@@ -10,6 +10,7 @@ import { ScrollProgressComponent } from './components/scroll-progress/scroll-pro
 import { BackToTopComponent } from './components/back-to-top/back-to-top';
 import { FloatingContactComponent } from './components/floating-contact/floating-contact';
 import { RevealDirective } from './directives/reveal.directive';
+import { TranslatePipe } from './site-preferences';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ import { RevealDirective } from './directives/reveal.directive';
     BackToTopComponent,
     FloatingContactComponent,
     RevealDirective,
+    TranslatePipe,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css',
